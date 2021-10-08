@@ -69,7 +69,7 @@ Synonym: Region, Area, Zone
 
 Description: The weather conditions prevailing in an area in general or over a long period.
 
-### Diagra, Maxima and Minima relationship and attribute 
+### Diagram, Maxima and Minima relationship and attribute 
 
 
-![veggie_tales_diagram.png](../img/veggie_tales_diagram.png)
+![veggie_tales_diagram.png](./img/veggie_tales_diagram.png)
