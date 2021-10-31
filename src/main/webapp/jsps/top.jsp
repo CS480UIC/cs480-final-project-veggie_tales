@@ -34,7 +34,7 @@
 		</head>
 
 		<body>
-			<h1 style="text-align: center;">J Jesus Benitez-Gorostieta: jbenit5</h1>
+			<h1 style="text-align: center;">veggie_tales</h1>
 			<div style="font-size: 10pt;">
 				<c:choose>
 					<c:when test="${empty sessionScope.session_user }">
