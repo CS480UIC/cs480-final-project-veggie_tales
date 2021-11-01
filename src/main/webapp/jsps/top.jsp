@@ -40,6 +40,9 @@
 					<c:when test="${empty sessionScope.session_user }">
 						<a href="<c:url value='/jsps/user/login.jsp'/>" target="_parent">Login</a> |&nbsp;
 						<a href="<c:url value='/jsps/user/regist.jsp'/>" target="_parent">Register</a> |&nbsp;
+						<a href="<c:url value='/jsps/user/queries.jsp'/>" target="body">Query Result</a> |&nbsp;&nbsp;
+						<a href="<c:url value='/UserServletLogout'/>" target="_parent">Logout</a> |&nbsp;
+						<a href="<c:url value='/jsps/discoverer/menu.jsp'/>" target="body">CRUD Discoverer</a> |&nbsp;&nbsp;
 
 					</c:when>
 					<c:otherwise>
