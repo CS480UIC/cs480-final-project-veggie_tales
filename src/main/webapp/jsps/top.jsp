@@ -43,6 +43,7 @@
 						<a href="<c:url value='/jsps/user/queries.jsp'/>" target="body">Query Result</a> |&nbsp;&nbsp;
 						<a href="<c:url value='/UserServletLogout'/>" target="_parent">Logout</a> |&nbsp;
 						<a href="<c:url value='/jsps/discoverer/menu.jsp'/>" target="body">CRUD Discoverer</a> |&nbsp;&nbsp;
+						<a href="<c:url value='/jsps/predator/menu.jsp'/>" target="body">CRUD Predator</a> |&nbsp;&nbsp;
 
 					</c:when>
 					<c:otherwise>
