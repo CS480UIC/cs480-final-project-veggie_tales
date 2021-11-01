@@ -44,6 +44,9 @@
 						<a href="<c:url value='/UserServletLogout'/>" target="_parent">Logout</a> |&nbsp;
 						<a href="<c:url value='/jsps/discoverer/menu.jsp'/>" target="body">CRUD Discoverer</a> |&nbsp;&nbsp;
 						<a href="<c:url value='/jsps/predator/menu.jsp'/>" target="body">CRUD Predator</a> |&nbsp;&nbsp;
+						<a href="<c:url value='/jsps/season/menu.jsp'/>" target="body">CRUD Season</a> |&nbsp;&nbsp;
+						<a href="<c:url value='/jsps/edible/menu.jsp'/>" target="body">CRUD Edible</a> |&nbsp;&nbsp;
+						<a href="<c:url value='/jsps/terrain/menu.jsp'/>" target="body">CRUD Terrain</a> |&nbsp;&nbsp;
 
 					</c:when>
 					<c:otherwise>
