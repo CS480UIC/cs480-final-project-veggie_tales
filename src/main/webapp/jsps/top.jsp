@@ -44,11 +44,13 @@
 						<a href="<c:url value='/UserServletLogout'/>" target="_parent">Logout</a> |&nbsp;
 						<a href="<c:url value='/jsps/discoverer/menu.jsp'/>" target="body">CRUD Discoverer</a> |&nbsp;&nbsp;
 						<a href="<c:url value='/jsps/predator/menu.jsp'/>" target="body">CRUD Predator</a> |&nbsp;&nbsp;
+						<a href="<c:url value='/jsps/season/menu.jsp'/>" target="body">CRUD Season</a> |&nbsp;&nbsp;
+						<a href="<c:url value='/jsps/edible/menu.jsp'/>" target="body">CRUD Edible</a> |&nbsp;&nbsp;
+						<a href="<c:url value='/jsps/terrain/menu.jsp'/>" target="body">CRUD Terrain</a> |&nbsp;&nbsp;
 						<a href="<c:url value='/jsps/visitor_location/menu.jsp'/>" target="body">CRUD Visitor Location</a> |&nbsp;&nbsp;
 						<a href="<c:url value='/jsps/plant/menu.jsp'/>" target="body">CRUD Plant</a> |&nbsp;&nbsp;
 						<a href="<c:url value='/jsps/photo/menu.jsp'/>" target="body">CRUD Photo</a> |&nbsp;&nbsp;
 						<a href="<c:url value='/jsps/climate/menu.jsp'/>" target="body">CRUD Climate</a> |&nbsp;&nbsp;
-
 					</c:when>
 					<c:otherwise>
 						Hello：${sessionScope.session_user.username };
