@@ -15,14 +15,15 @@ J Jesus Gorostieta
 
 # Database description
 The idea of our project is as follows. We seek to make an all in one database that encompasses all aspects of given vegetation.🍇🍈🍉🍊🍋🍌🍍🥭🍎🍏🍐🍑🍒🍓🍅�
-Such vegetation information would include how to take care of it with respect to how much light it needs to grow, it’s humidity level to survive, whether or not it’s edible, etc. A user could enter a plant name and get it’s information or possibly select from a list of all plants. A simple search API could be used to gather information. The originality of this project comes from it’s inspiration where upon trying to take care of some plants, it became increasingly difficult to find information on how to take care of different kinds of plants sin<
+Such vegetation information would include how to take care of it with respect to how much light it needs to grow, it’s humidity level to survive, whether or not it’s edible, etc. A user could enter a plant name and get it’s information or possibly select from a list of all plants. A simple search API could be used to gather information. The originality of this project comes from it’s inspiration where upon trying to take care of some plants, it became increasingly difficult to find information on how to take care of different kinds of plants since the information was scattered throughout the web. Since there does not seem to exist a centralized database for such a task, we need to create one.
 
-<img width="738" alt="Screenshot 2021-10-31 at 10 00 14 PM" src="https://user-images.githubusercontent.com/62408692/139615843-8c30f4df-3df9-477d-bd45-d69113b7f917.png">
-img width="728" alt="Screenshot 2021-10-31 at 9 59 06 PM" src="https://user-images.githubusercontent.com/62408692/139615832-8470d37a-2b22-4b10-930e-b5849a7508e1.png">
-<img width="734" alt="Screenshot 2021-10-31 at 9 59 21 PM" src="https://user-images.githubusercontent.com/62408692/139615838-58e09187-7385-4fa7-9d3e-bd07b3df547a.png">
-<img width="739" alt="Screenshot 2021-10-31 at 9 59 45 PM" src="https://user-images.githubusercontent.com/62408692/139615840-beac00a0-aaae-4cda-82b1-9cc3dd9b0c41.png">
-<img width="738" alt="Screenshot 2021-10-31 at 10 00 01 PM" src="https://user-images.githubusercontent.com/62408692/139615842-1572f4d8-c516-441d-a775-9c51d5e44597.png">
-ce the information was scattered throughout the web. Since there does not seem to exist a centralized database for such a task, we need to create one.
+
+<img width="728" alt="Screenshot 2021-10-31 at 9 59 06 PM" src="https://user-images.githubusercontent.com/62408692/139615925-fa3f3b25-3a6c-4eef-bf47-e1b9bad387ca.png">
+<img width="734" alt="Screenshot 2021-10-31 at 9 59 21 PM" src="https://user-images.githubusercontent.com/62408692/139615928-2e6a57a7-2771-4473-a6bb-c1396ea712ac.png">
+<img width="739" alt="Screenshot 2021-10-31 at 9 59 45 PM" src="https://user-images.githubusercontent.com/62408692/139615929-7028f94d-7dd8-4cd3-803e-6f955971be99.png">
+<img width="738" alt="Screenshot 2021-10-31 at 10 00 01 PM" src="https://user-images.githubusercontent.com/62408692/139615931-9f354999-ca45-4dbf-9b32-727c63ff4aae.png">
+<img width="738" alt="Screenshot 2021-10-31 at 10 00 14 PM" src="https://user-images.githubusercontent.com/62408692/139615933-1c522a95-0fdc-4081-8bd9-943ea3cf3422.png">
+
 
 
 
