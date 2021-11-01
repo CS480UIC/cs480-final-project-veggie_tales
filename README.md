@@ -17,4 +17,4 @@ J Jesus Gorostieta
 The idea of our project is as follows. We seek to make an all in one database that encompasses all aspects of given vegetation.🍇🍈🍉🍊🍋🍌🍍🥭🍎🍏🍐🍑🍒🍓🍅�
 Such vegetation information would include how to take care of it with respect to how much light it needs to grow, it’s humidity level to survive, whether or not it’s edible, etc. A user could enter a plant name and get it’s information or possibly select from a list of all plants. A simple search API could be used to gather information. The originality of this project comes from it’s inspiration where upon trying to take care of some plants, it became increasingly difficult to find information on how to take care of different kinds of plants since the information was scattered throughout the web. Since there does not seem to exist a centralized database for such a task, we need to create one.
 
-[Capture.png](https://postimg.cc/5Yp1j7s2)
+![Screenshot](https://postimg.cc/5Yp1j7s2)
