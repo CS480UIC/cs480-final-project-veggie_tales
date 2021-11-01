@@ -46,6 +46,8 @@
 						<a href="<c:url value='/jsps/predator/menu.jsp'/>" target="body">CRUD Predator</a> |&nbsp;&nbsp;
 						<a href="<c:url value='/jsps/visitor_location/menu.jsp'/>" target="body">CRUD Visitor Location</a> |&nbsp;&nbsp;
 						<a href="<c:url value='/jsps/plant/menu.jsp'/>" target="body">CRUD Plant</a> |&nbsp;&nbsp;
+						<a href="<c:url value='/jsps/photo/menu.jsp'/>" target="body">CRUD Photo</a> |&nbsp;&nbsp;
+						<a href="<c:url value='/jsps/climate/menu.jsp'/>" target="body">CRUD Climate</a> |&nbsp;&nbsp;
 
 					</c:when>
 					<c:otherwise>
