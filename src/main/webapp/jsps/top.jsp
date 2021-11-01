@@ -44,9 +44,14 @@
 						<a href="<c:url value='/UserServletLogout'/>" target="_parent">Logout</a> |&nbsp;
 						<a href="<c:url value='/jsps/discoverer/menu.jsp'/>" target="body">CRUD Discoverer</a> |&nbsp;&nbsp;
 						<a href="<c:url value='/jsps/predator/menu.jsp'/>" target="body">CRUD Predator</a> |&nbsp;&nbsp;
+<<<<<<< HEAD
 						<a href="<c:url value='/jsps/season/menu.jsp'/>" target="body">CRUD Season</a> |&nbsp;&nbsp;
 						<a href="<c:url value='/jsps/edible/menu.jsp'/>" target="body">CRUD Edible</a> |&nbsp;&nbsp;
 						<a href="<c:url value='/jsps/terrain/menu.jsp'/>" target="body">CRUD Terrain</a> |&nbsp;&nbsp;
+=======
+						<a href="<c:url value='/jsps/visitor_location/menu.jsp'/>" target="body">CRUD Visitor Location</a> |&nbsp;&nbsp;
+						<a href="<c:url value='/jsps/plant/menu.jsp'/>" target="body">CRUD Plant</a> |&nbsp;&nbsp;
+>>>>>>> branch 'main' of git@github.com:CS480UIC/cs480-final-project-veggie_tales.git
 
 					</c:when>
 					<c:otherwise>
