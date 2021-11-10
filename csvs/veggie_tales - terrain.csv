@@ -1,6 +1,6 @@
-Timestamp,Terrain Type,Location,Minerals in this terrain,Soil type of terrain,Fertilizer of terrain
-11/7/2021 21:48:28,Canyon,Nepal,"Quartz,Calcite,Clay",sandy loam,guano
-11/7/2021 21:52:30,Forest,Glen Mills,"copper, platinum, palladium",Alfisols,Nitrogen
-11/7/2021 21:56:31,Marsh,Louisiana,"agate,topaz,onyx",hydric soils,nitrogen
-11/7/2021 21:58:15,Mountain,Wyoming,"sand, gravel, crushed stone",Aridisols,phosphate
-11/7/2021 22:00:45,Tundra,Scandinavia,"gold, diamonds, copper,",largely permafrost,inorganic (mineral)
+Timestamp,Terrain Type,Minerals in this terrain,Soil type of terrain,Fertilizer of terrain
+11/7/2021 21:48:28,Canyon,"Quartz,Calcite,Clay",sandy loam,guano
+11/7/2021 21:52:30,Forest,"copper, platinum, palladium",Alfisols,Nitrogen
+11/7/2021 21:56:31,Marsh,"agate,topaz,onyx",hydric soils,nitrogen
+11/7/2021 21:58:15,Mountain,"sand, gravel, crushed stone",Aridisols,phosphate
+11/7/2021 22:00:45,Tundra,"gold, diamonds, copper,",largely permafrost,inorganic (mineral)

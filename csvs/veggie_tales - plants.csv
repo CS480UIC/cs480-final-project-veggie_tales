@@ -1,6 +1,6 @@
-Timestamp,Name of Plant,Average Measurement,Classification,Growth Season,Discovered by,Picture URL,Eaten by
-11/7/2021 22:05:44,creosote bush,3,Larrea tridentata,Spring,Frank Vasek,https://en.wikipedia.org/wiki/Larrea_tridentata#/media/File:Larrea_tridentata_Furnace_Creek.jpg,Arabian camel
-11/7/2021 22:10:48,American Black Currant,3,Ribes americanum,Spring,English settlers,https://en.wikipedia.org/wiki/Blackcurrant_production_in_the_United_States#/media/File:Ribes_nigrum_a1.JPG,"catbirds, thrashers, robins"
-11/7/2021 22:15:23,Saltmarsh cordgrass,5,Spartina alterniflora ,spring,Cory Jenson,https://en.wikipedia.org/wiki/Spartina#/media/File:Spartinadensiflora.jpg,"marshbirds, songbirds, sharp-tailed sparrows"
-11/7/2021 22:19:23,pines ,150,Pinus,Fall,David Mackay,https://en.wikipedia.org/wiki/Pine#/media/File:Pinus_densiflora_Kumgangsan.jpg,"European pine sawfly, Southern pine beetle."
-11/7/2021 22:22:06,Labrador Tea,2, Rhododendron,Summer,Pete Wallas,https://en.wikipedia.org/wiki/Labrador_tea#/media/File:Labrador_Tea_flower.jpg,"White-tailed deer,moose"
+Timestamp,Name of Plant,Average Measurement,Classification,Growth Season,Discovered by,Photo ID,Eaten by
+11/7/2021 22:05:44,creosote bush,3,Larrea tridentata,Spring,Frank Vasek,1,Arabian camel
+11/7/2021 22:10:48,American Black Currant,3,Ribes americanum,Spring,English settlers,2,"catbirds, thrashers, robins"
+11/7/2021 22:15:23,Saltmarsh cordgrass,5,Spartina alterniflora ,spring,Cory Jenson,3,"marshbirds, songbirds, sharp-tailed sparrows"
+11/7/2021 22:19:23,pines ,150,Pinus,Fall,David Mackay,4,"European pine sawfly, Southern pine beetle."
+11/7/2021 22:22:06,Labrador Tea,2, Rhododendron,Summer,Pete Wallas,5,"White-tailed deer,moose"

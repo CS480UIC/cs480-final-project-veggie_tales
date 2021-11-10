@@ -1,6 +1,6 @@
-Timestamp,Climate Type,Amount of rainfall per year,Amount of humidity,City of which the climate belongs to
-11/7/2021 21:32:30,Tropical wet,70,64,Jakarta
-11/7/2021 21:34:46,Semiarid and desert,10,0,Ghana
-11/7/2021 21:36:45,Humid subtropical,48,20,Busan
-11/7/2021 21:38:33,Subarctic ,15,50,Moosonee
-11/7/2021 21:39:40,Highland,67,73,Sucre
+Timestamp,Climate Type,Amount of rainfall per year,Amount of humidity
+11/7/2021 21:32:30,Tropical wet,70,64
+11/7/2021 21:34:46,Semiarid and desert,10,0
+11/7/2021 21:36:45,Humid subtropical,48,20
+11/7/2021 21:38:33,Subarctic ,15,50
+11/7/2021 21:39:40,Highland,67,73
