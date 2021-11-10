@@ -1,8 +1,13 @@
 [![Work in MakeCode](https://classroom.github.com/assets/work-in-make-code-c53f0c86300af1a64cdd5dc830e2509efd17c8cb483a722cacaee84d10eb8ec9.svg)](https://classroom.github.com/online_ide?assignment_repo_id=5858239&assignment_repo_type=AssignmentRepo)
+
+## Docker MySQL 
+1. run ``` docker-compose up ```
+2. Workbench MySQL Connection 127.0.0.1:3306
+
 ## Table of Contents
-1. [Database](#database)
-1. [Author(s)](#authors)
-1. [Database description](#database-description)
+- [Database](#database)
+- [Author(s)](#authors)
+- [Database description](#database-description)
 
 # Database
 veggie_tales
