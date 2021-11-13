@@ -1,6 +1,6 @@
-season_name,temperature,duration,season_climate
-Spring,97,3,Rainy
-Summer,110,5,Hot
-Winter,20,3,Cold
-Fall,58,4,Windy
-Monsoon,67,3,Heavy Rain
+season_name,temperature,duration
+Spring,97,2
+Summer,110,4
+Winter,20,3
+Fall,58,3
+Monsoon,67,3

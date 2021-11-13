@@ -1,3 +1,4 @@
+SET FOREIGN_KEY_CHECKS = 0;
 LOAD DATA INFILE '/var/lib/mysql/csvs/veggie_tales - edible.csv' 
 INTO TABLE edible 
 FIELDS TERMINATED BY ',' 
@@ -44,7 +45,7 @@ LOAD DATA INFILE '/var/lib/mysql/csvs/veggie_tales - visitor_location.csv'
 INTO TABLE visitor_location
 FIELDS TERMINATED BY ',' 
 ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
+LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
 LOAD DATA INFILE '/var/lib/mysql/csvs/veggie_tales - season.csv' 
@@ -60,3 +61,4 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
+SET FOREIGN_KEY_CHECKS = 1;

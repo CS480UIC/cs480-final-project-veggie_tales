@@ -1,6 +1,5 @@
 Terrain Type,Minerals in this terrain,Soil type of terrain,Fertilizer of terrain
-Canyon,clay,sandy-loam,guano
+Rainforest,clay,sandy-loam,guano
 Forest,palladium,alfisols,Nitrogen
-Marsh,agate,hydric-soils,nitrogen
-Mountain,sand,aridisols,phosphate
+Savanna,agate,hydric-soils,nitrogen
 Tundra,copper,largely-permafrost,inorganic

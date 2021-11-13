@@ -9,7 +9,7 @@ CREATE TABLE edible (
 
 CREATE TABLE predator (
     species VARCHAR(50) UNIQUE NOT NULL,
-    name VARCHAR(40) NOT NULL,
+    name VARCHAR(40),
     vore_type VARCHAR(10),
 
     PRIMARY KEY (species)
@@ -60,15 +60,11 @@ CREATE TABLE user (
 
 
 CREATE TABLE season (
-    season_name VARCHAR(6) NOT NULL,
+    season_name VARCHAR(10) NOT NULL,
     temperature TINYINT NOT NULL,
     duration TINYINT NOT NULL,
-    season_climate VARCHAR(30) NOT NULL,
 
-    PRIMARY KEY(season_name),
-    FOREIGN KEY (season_climate) REFERENCES climate(climate_name)
-		ON DELETE CASCADE
-        ON UPDATE CASCADE
+    PRIMARY KEY(season_name)
 );
 
 CREATE TABLE visitor_location (

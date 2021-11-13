@@ -7,4 +7,4 @@ DROP TABLE season;
 DROP TABLE user;
 DROP TABLE visitor_location;
 DROP TABLE terrain;
-DROP TABLE climate; 
+DROP TABLE climate;

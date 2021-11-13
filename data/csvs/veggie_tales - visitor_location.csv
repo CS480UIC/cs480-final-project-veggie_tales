@@ -1,6 +1,6 @@
 Zipcode,Continent,Country,City,Climate,Terrain
-630928,Africa,Nigeria,Lagos,Tropical Wet,Canyon
-982910,Asia,India,Hyderabad,Semiarid Desert,Forest
-383301,Asia,South Korea,Busan,Humid subtropical,Mountain
-338361,South America,Brazil,Rio de Janeiro,Dry,Tundra   
-372819,Asia,Pakistan,Karachi,Highland,Tundra
+630928,Africa,Nigeria,Lagos,Tropical,Rainforest 
+982910,Asia,India,Hyderabad,Dry,Forest
+383301,Asia,South Korea,Busan,Continental,Forest
+338361,South America,Brazil,Rio de Janeiro,Dry,Savanna 
+372819,Asia,Pakistan,Karachi,Temperate,Savanna
