@@ -1,6 +1,6 @@
-Timestamp,Continent,Country,City,Climate,Zipcode
-10/18/2021 22:59:48,Africa,Nigeria,Lagos,Tropical wet,630928
-10/18/2021 23:00:11,Asia,India,Hyderabad,Semiarid and desert,982910
-10/18/2021 23:00:23,Asia,South Korea,Busan,Humid subtropical,383301
-10/18/2021 23:01:32,South America,Brazil,Rio de Janeiro,Subarctic ,338361
-10/18/2021 23:02:06,Asia,Pakistan,Karachi,Highland,372819
+Zipcode,Continent,Country,City,Climate,Terrain
+630928,Africa,Nigeria,Lagos,Tropical,Rainforest 
+982910,Asia,India,Hyderabad,Dry,Forest
+383301,Asia,South Korea,Busan,Continental,Forest
+338361,South America,Brazil,Rio de Janeiro,Dry,Savanna 
+372819,Asia,Pakistan,Karachi,Temperate,Savanna

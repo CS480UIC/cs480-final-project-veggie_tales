@@ -1,6 +1,5 @@
-Timestamp,Discoverer Name,Date,Location
-10/18/2021 22:49:06,Sam,1991-06-21,Greece
-10/18/2021 22:51:43,Hamlet,2021-03-09,Rome
-10/18/2021 23:08:21,Timothy Collins,2021-10-18,Los Angeles
-10/18/2021 23:09:13,Fred Ward,1992-08-07,Wales
-10/18/2021 23:11:03,Bob Evans,1876-02-05,Tokyo
+Discoverer Name,Date,Location
+Frank Vasek,\N,Greek
+Samuel McElvain,1973-04-11,USA
+Marco Polo,1254-09-15,Italy
+John Gardiner,\N,UK

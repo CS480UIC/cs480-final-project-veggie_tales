@@ -50,15 +50,6 @@ CREATE TABLE photo (
 );
 
 
-CREATE TABLE user (
-    username VARCHAR(20) NOT NULL,
-    password VARCHAR(20) NOT NULL,
-    email VARCHAR(20),
-
-    PRIMARY KEY(username)
-);
-
-
 CREATE TABLE season (
     season_name VARCHAR(10) NOT NULL,
     temperature TINYINT NOT NULL,
@@ -92,6 +83,7 @@ CREATE TABLE plant (
     plant_predator VARCHAR(50),
   
     PRIMARY KEY(plant_name),
+    FOREIGN KEY (plant_name) REFERENCES edible(crop),
     FOREIGN KEY (growth_season) REFERENCES season(season_name),
     FOREIGN KEY (plant_discoverer) REFERENCES discoverer(discoverer_name),
     FOREIGN KEY (photo_id) REFERENCES photo(photo_id),
@@ -100,3 +92,19 @@ CREATE TABLE plant (
         ON UPDATE CASCADE
 );
 
+CREATE TABLE user
+(
+  
+  username VARCHAR(50) primary key,
+  `password` VARCHAR(50) NOT NULL,
+  email VARCHAR(50) NOT NULL
+);
+
+
+CREATE TABLE entity1 
+(
+  
+  username VARCHAR(50) primary key,
+  `password` VARCHAR(50) NOT NULL,
+  email VARCHAR(50) NOT NULL
+);
