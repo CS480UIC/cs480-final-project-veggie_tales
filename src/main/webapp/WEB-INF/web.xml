@@ -4,49 +4,49 @@
   <display-name>CS480 Demo</display-name>
     <servlet>
     <description></description>
-    <display-name>Entity1ServletCreate</display-name>
-    <servlet-name>Entity1ServletCreate</servlet-name>
-    <servlet-class>entity1.web.servlet.Entity1ServletCreate</servlet-class>
+    <display-name>EdibleServletCreate</display-name>
+    <servlet-name>EdibleServletCreate</servlet-name>
+    <servlet-class>edible.web.servlet.EdibleServletCreate</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Entity1ServletCreate</servlet-name>
-    <url-pattern>/Entity1ServletCreate</url-pattern>
+    <servlet-name>EdibleServletCreate</servlet-name>
+    <url-pattern>/EdibleServletCreate</url-pattern>
   </servlet-mapping>
   
   <servlet>
     <description></description>
-    <display-name>Entity1ServletRead</display-name>
-    <servlet-name>Entity1ServletRead</servlet-name>
-    <servlet-class>entity1.web.servlet.Entity1ServletRead</servlet-class>
+    <display-name>EdibleServletRead</display-name>
+    <servlet-name>EdibleServletRead</servlet-name>
+    <servlet-class>edible.web.servlet.EdibleServletRead</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Entity1ServletRead</servlet-name>
-    <url-pattern>/Entity1ServletRead</url-pattern>
+    <servlet-name>EdibleServletRead</servlet-name>
+    <url-pattern>/EdibleServletRead</url-pattern>
   </servlet-mapping>
   
   
   
     <servlet>
     <description></description>
-    <display-name>Entity1ServletUpdate</display-name>
-    <servlet-name>Entity1ServletUpdate</servlet-name>
-    <servlet-class>entity1.web.servlet.Entity1ServletUpdate</servlet-class>
+    <display-name>EdibleServletUpdate</display-name>
+    <servlet-name>EdibleServletUpdate</servlet-name>
+    <servlet-class>edible.web.servlet.EdibleServletUpdate</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Entity1ServletUpdate</servlet-name>
-    <url-pattern>/Entity1ServletUpdate</url-pattern>
+    <servlet-name>EdibleServletUpdate</servlet-name>
+    <url-pattern>/EdibleServletUpdate</url-pattern>
   </servlet-mapping>
   
   
     <servlet>
     <description></description>
-    <display-name>Entity1ServletDelete</display-name>
-    <servlet-name>Entity1ServletDelete</servlet-name>
-    <servlet-class>entity1.web.servlet.Entity1ServletDelete</servlet-class>
+    <display-name>EdibleServletDelete</display-name>
+    <servlet-name>EdibleServletDelete</servlet-name>
+    <servlet-class>edible.web.servlet.EdibleServletDelete</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Entity1ServletDelete</servlet-name>
-    <url-pattern>/Entity1ServletDelete</url-pattern>
+    <servlet-name>EdibleServletDelete</servlet-name>
+    <url-pattern>/EdibleServletDelete</url-pattern>
   </servlet-mapping>
   
   <servlet>

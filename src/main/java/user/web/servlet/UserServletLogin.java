@@ -2,7 +2,6 @@ package user.web.servlet;
 
 import java.io.IOException;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,28 +18,32 @@ import user.service.UserService;
 
 public class UserServletLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserServletLogin() {
-        super();
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request,response);
+	public UserServletLogin() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		UserDao userdao = new UserDao();
 		User user = null;
-		String pwd=null;
+		String pwd = null;
 		try {
 			user = userdao.findByUsername(request.getParameter("username"));
 			pwd = request.getParameter("password");
@@ -51,12 +54,11 @@ public class UserServletLogin extends HttpServlet {
 		} catch (IllegalAccessException e1) {
 			e1.printStackTrace();
 		}
-		
-		UserService userservice = new UserService();		
-		if(user.getUsername()!=null){
+
+		UserService userservice = new UserService();
+		if (user.getUsername() != null) {
 			// PASSWORD VALIDATION
-			if(pwd.equals(user.getPassword()))
-			{
+			if (pwd.equals(user.getPassword())) {
 				try {
 					userservice.login(user);
 					request.getSession().setAttribute("session_user", user);
@@ -67,22 +69,19 @@ public class UserServletLogin extends HttpServlet {
 					request.setAttribute("msg", e.getMessage());
 				} catch (IllegalAccessException e) {
 					request.setAttribute("msg", e.getMessage());
-				} 
-			}
-			else{
+				}
+			} else {
 				request.setAttribute("msg", "invalid password");
 				request.getRequestDispatcher("/jsps/user/login.jsp").forward(request, response);
 			}
-				
+
 		}
 
-			else{
+		else {
 			request.setAttribute("msg", "You need to register first");
 			request.getRequestDispatcher("/jsps/user/login.jsp").forward(request, response);
 		}
-		
-		
-		
+
 	}
 
 }
