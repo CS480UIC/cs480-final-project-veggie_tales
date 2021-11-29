@@ -29,19 +29,19 @@ public class SeasonDao {
 	 */
 	private String MySQL_password = "passw"; //TODO change temperature
 
-	public Season findBySeason(String season) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+	public Season findBySeason(String seasonString) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 		Season season = new Season();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user, MySQL_password);
 		    String sql = "select * from season where season=?";
 		    PreparedStatement preparestatement = connect.prepareStatement(sql); 
-		    preparestatement.setString(1,season);
+		    preparestatement.setString(1,seasonString);
 		    ResultSet resultSet = preparestatement.executeQuery();
 
 		    while(resultSet.next()){
 		    	String user_name = resultSet.getString("season");
-		    	if(user_name.equals(season)){
+		    	if(user_name.equals(seasonString)){
 		    		season.setSeason(resultSet.getString("season"));
 		    		season.setTemperature(resultSet.getString("temperature"));
 		    		season.setDuration(resultSet.getString("duration"));		

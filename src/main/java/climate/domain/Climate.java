@@ -1,4 +1,4 @@
-package entity1.domain;
+package climate.domain;
 
 /**
  * User object

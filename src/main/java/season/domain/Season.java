@@ -1,4 +1,4 @@
-package entity1.domain;
+package season.domain;
 
 /**
  * User object
@@ -32,11 +32,11 @@ public class Season {
 		this.temperature = temperature;
 	}
 
-	public String getduration() {
+	public String getDuration() {
 		return duration;
 	}
 
-	public void setduration(String duration) {
+	public void setDuration(String duration) {
 		this.duration = duration;
 	}
 

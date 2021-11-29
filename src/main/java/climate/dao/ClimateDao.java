@@ -26,19 +26,19 @@ public class ClimateDao {
 	 */
 	private String MySQL_password = "passw"; 
 
-	public Climate findByClimate(String climate) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+	public Climate findByClimate(String climateString) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 		Climate climate = new Climate();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user, MySQL_password);
 		    String sql = "select * from climate where climate=?";
 		    PreparedStatement preparestatement = connect.prepareStatement(sql); 
-		    preparestatement.setString(1,climate);
+		    preparestatement.setString(1,climateString);
 		    ResultSet resultSet = preparestatement.executeQuery();
 
 		    while(resultSet.next()){
 		    	String user_name = resultSet.getString("climate");
-		    	if(user_name.equals(climate)){
+		    	if(user_name.equals(climateString)){
 		    		climate.setClimate(resultSet.getString("climate"));
 		    		climate.setRainfall(resultSet.getString("rainfall"));
 		    		climate.setHumidity(resultSet.getString("email"));		
@@ -110,7 +110,7 @@ public class ClimateDao {
 	public void delete(String climate) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user, MySQL_password;
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user, MySQL_password);
 			
 			String sql = "delete from climate where climate = ?";
 			PreparedStatement preparestatement = connect.prepareStatement(sql); 

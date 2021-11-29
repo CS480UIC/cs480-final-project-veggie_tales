@@ -41,7 +41,7 @@ public class SeasonServletDelete extends HttpServlet {
 		if(method.equals("search"))
 		{
 			try {
-				season = seasonDao.findByseason(request.getParameter("season"));
+				season = seasonDao.findBySeason(request.getParameter("season"));
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			} catch (InstantiationException e1) {
@@ -50,7 +50,7 @@ public class SeasonServletDelete extends HttpServlet {
 				e1.printStackTrace();
 			}
 		
-			if(season.getseason()!=null){
+			if(season.getSeason()!=null){
 						System.out.println(season);
 						request.setAttribute("season", season);
 						request.getRequestDispatcher("/jsps/season/season_delete_output.jsp").forward(request, response);			
