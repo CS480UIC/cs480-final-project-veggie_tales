@@ -6,7 +6,7 @@
 <html>
   <head>
     
-    <title>Read Entity1 Output</title>
+    <title>Read Climate Output</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -21,14 +21,14 @@
   </head>
   
   <body>
-  <h1>Read Entity Output</h1>
+  <h1>Read Climate Output</h1>
 <p style="color: red; font-weight: 900">${msg }</p>
 <form>
-	User    :<input type="text" name="username" value="${entity1.username }" disabled/>
+	User    :<input type="text" name="climate" value="${climate.climate }" disabled/>
 	<br/>
-	Password：<input type="text" name="password" value="${entity1.password }" disabled/>
+	Password：<input type="text" name="rainfall" value="${climate.rainfall }" disabled/>
 	<br/>
-	Email	：<input type="text" name="email" value="${entity1.email }" disabled/>
+	Email	：<input type="text" name="humidity" value="${climate.humidity }" disabled/>
 	<br/>
 </form>
 

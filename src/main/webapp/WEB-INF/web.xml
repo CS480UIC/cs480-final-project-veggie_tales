@@ -2,6 +2,100 @@
 
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>CS480 Demo</display-name>
+      <servlet>
+    <description></description>
+    <display-name>SeasonServletCreate</display-name>
+    <servlet-name>SeasonServletCreate</servlet-name>
+    <servlet-class>season.web.servlet.SeasonServletCreate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SeasonServletCreate</servlet-name>
+    <url-pattern>/SeasonServletCreate</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>SeasonServletRead</display-name>
+    <servlet-name>SeasonServletRead</servlet-name>
+    <servlet-class>season.web.servlet.SeasonServletRead</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SeasonServletRead</servlet-name>
+    <url-pattern>/SeasonServletRead</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>SeasonServletUpdate</display-name>
+    <servlet-name>SeasonServletUpdate</servlet-name>
+    <servlet-class>season.web.servlet.SeasonServletUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SeasonServletUpdate</servlet-name>
+    <url-pattern>/SeasonServletUpdate</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>SeasonServletDelete</display-name>
+    <servlet-name>SeasonServletDelete</servlet-name>
+    <servlet-class>season.web.servlet.SeasonServletDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SeasonServletDelete</servlet-name>
+    <url-pattern>/SeasonServletDelete</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <description></description>
+    <display-name>ClimateServletCreate</display-name>
+    <servlet-name>ClimateServletCreate</servlet-name>
+    <servlet-class>climate.web.servlet.ClimateServletCreate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClimateServletCreate</servlet-name>
+    <url-pattern>/ClimateServletCreate</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>ClimateServletRead</display-name>
+    <servlet-name>ClimateServletRead</servlet-name>
+    <servlet-class>climate.web.servlet.ClimateServletRead</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClimateServletRead</servlet-name>
+    <url-pattern>/ClimateServletRead</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>ClimateServletUpdate</display-name>
+    <servlet-name>ClimateServletUpdate</servlet-name>
+    <servlet-class>climate.web.servlet.ClimateServletUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClimateServletUpdate</servlet-name>
+    <url-pattern>/ClimateServletUpdate</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>ClimateServletDelete</display-name>
+    <servlet-name>ClimateServletDelete</servlet-name>
+    <servlet-class>climate.web.servlet.ClimateServletDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClimateServletDelete</servlet-name>
+    <url-pattern>/ClimateServletDelete</url-pattern>
+  </servlet-mapping>
+
     <servlet>
     <description></description>
     <display-name>EdibleServletCreate</display-name>

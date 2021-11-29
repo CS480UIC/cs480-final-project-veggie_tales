@@ -22,18 +22,18 @@
   
   <body>
   <h1>Create Climate</h1>
-<form action="<c:url value='/Entity1ServletCreate'/>" method="post">
-	Climate Type    :<input type="text" name="username" value="${form.username }"/>
-	<span style="color: red; font-weight: 900">${errors.username }</span>
+<form action="<c:url value='/ClimateServletCreate'/>" method="post">
+	Climate Type    :<input type="text" name="climate" value="${form.climate }"/>
+	<span style="color: red; font-weight: 900">${errors.climate }</span>
 	<br/>
-	Amount of Rainfall per Year	：<input type="password" name="password" value="${form.password }"/>
-	<span style="color: red; font-weight: 900">${errors.password }</span>
+	Amount of Rainfall per Year	：<input type="text" name="rainfall" value="${form.rainfall }"/>
+	<span style="color: red; font-weight: 900">${errors.rainfall }</span>
 	<br/>
-	Humidity	：<input type="text" name="email" value="${form.email }"/>
-	<span style="color: red; font-weight: 900">${errors.email }</span>
+	Humidity	：<input type="text" name="humidity" value="${form.humidity }"/>
+	<span style="color: red; font-weight: 900">${errors.humidity }</span>
 	<br/>
-	Climate City	：<input type="text" name="email" value="${form.email }"/>
-	<span style="color: red; font-weight: 900">${errors.email }</span>
+	Climate City	：<input type="text" name="humidity" value="${form.humidity }"/>
+	<span style="color: red; font-weight: 900">${errors.humidity }</span>
 	<br/>
 	<input type="submit" value="Create Climate"/>
 </form>

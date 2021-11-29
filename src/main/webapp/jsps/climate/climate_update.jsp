@@ -22,10 +22,10 @@
   
   <body>
   <h1>Update</h1>
-<form action="<c:url value='/Entity1ServletUpdate'/>" method="post">
+<form action="<c:url value='/ClimateServletUpdate'/>" method="post">
 	<input type="hidden" name="method" value="search"/>
-	Update Climate Type   :<input type="text" name="username" value="${form.username }"/>
-	<span style="color: red; font-weight: 900">${errors.username }</span>
+	Update Climate Type   :<input type="text" name="climate" value="${form.climate }"/>
+	<span style="color: red; font-weight: 900">${errors.climate }</span>
 	<br/>
 	<input type="submit" value="Update Climate"/>
 </form>
