@@ -96,6 +96,155 @@
     <url-pattern>/ClimateServletDelete</url-pattern>
   </servlet-mapping>
 
+
+
+
+
+
+  <servlet>
+    <description></description>
+    <display-name>PhotoServletCreate</display-name>
+    <servlet-name>PhotoServletCreate</servlet-name>
+    <servlet-class>photo.web.servlet.PhotoServletCreate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PhotoServletCreate</servlet-name>
+    <url-pattern>/PhotoServletCreate</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>PhotoServletRead</display-name>
+    <servlet-name>PhotoServletRead</servlet-name>
+    <servlet-class>photo.web.servlet.PhotoServletRead</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PhotoServletRead</servlet-name>
+    <url-pattern>/PhotoServletRead</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>PhotoServletUpdate</display-name>
+    <servlet-name>PhotoServletUpdate</servlet-name>
+    <servlet-class>photo.web.servlet.PhotoServletUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PhotoServletUpdate</servlet-name>
+    <url-pattern>/PhotoServletUpdate</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>PhotoServletDelete</display-name>
+    <servlet-name>PhotoServletDelete</servlet-name>
+    <servlet-class>photo.web.servlet.PhotoServletDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PhotoServletDelete</servlet-name>
+    <url-pattern>/PhotoServletDelete</url-pattern>
+  </servlet-mapping>
+
+
+    <servlet>
+    <description></description>
+    <display-name>VisitorLocationServletCreate</display-name>
+    <servlet-name>VisitorLocationServletCreate</servlet-name>
+    <servlet-class>visitor_location.web.servlet.VisitorLocationServletCreate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VisitorLocationServletCreate</servlet-name>
+    <url-pattern>/VisitorLocationServletCreate</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>VisitorLocationServletRead</display-name>
+    <servlet-name>VisitorLocationServletRead</servlet-name>
+    <servlet-class>visitor_location.web.servlet.VisitorLocationServletRead</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VisitorLocationServletRead</servlet-name>
+    <url-pattern>/VisitorLocationServletRead</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>VisitorLocationServletUpdate</display-name>
+    <servlet-name>VisitorLocationServletUpdate</servlet-name>
+    <servlet-class>visitor_location.web.servlet.VisitorLocationServletUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VisitorLocationServletUpdate</servlet-name>
+    <url-pattern>/VisitorLocationServletUpdate</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>VisitorLocationServletDelete</display-name>
+    <servlet-name>VisitorLocationServletDelete</servlet-name>
+    <servlet-class>visitor_location.web.servlet.VisitorLocationServletDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VisitorLocationServletDelete</servlet-name>
+    <url-pattern>/VisitorLocationServletDelete</url-pattern>
+  </servlet-mapping>
+  
+
+  <servlet>
+    <description></description>
+    <display-name>TerrainServletCreate</display-name>
+    <servlet-name>TerrainServletCreate</servlet-name>
+    <servlet-class>terrain.web.servlet.TerrainServletCreate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TerrainServletCreate</servlet-name>
+    <url-pattern>/TerrainServletCreate</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>TerrainServletRead</display-name>
+    <servlet-name>TerrainServletRead</servlet-name>
+    <servlet-class>terrain.web.servlet.TerrainServletRead</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TerrainServletRead</servlet-name>
+    <url-pattern>/TerrainServletRead</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>TerrainServletUpdate</display-name>
+    <servlet-name>TerrainServletUpdate</servlet-name>
+    <servlet-class>terrain.web.servlet.TerrainServletUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TerrainServletUpdate</servlet-name>
+    <url-pattern>/TerrainServletUpdate</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>TerrainServletDelete</display-name>
+    <servlet-name>TerrainServletDelete</servlet-name>
+    <servlet-class>terrain.web.servlet.TerrainServletDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TerrainServletDelete</servlet-name>
+    <url-pattern>/TerrainServletDelete</url-pattern>
+  </servlet-mapping>
+
+
     <servlet>
     <description></description>
     <display-name>EdibleServletCreate</display-name>

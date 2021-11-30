@@ -23,7 +23,7 @@
   <body>
   <h1>Read Climate</h1>
 <p style="color: red; font-weight: 900">${msg }</p>
-<form action="<c:url value='/Entity1ServletRead'/>" method="post">
+<form action="<c:url value='/ClimateServletRead'/>" method="post">
 	<input type="hidden" name="method" value="regist"/>
 	Climate Type    :<input type="text" name="climate" value="${form.climate }"/>
 	<span style="color: red; font-weight: 900">${errors.climate }</span>

@@ -6,7 +6,7 @@
 <html>
   <head>
     
-    <title>Entity1 Create</title>
+    <title>Terrain Create</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -21,18 +21,21 @@
   </head>
   
   <body>
-  <h1>Entity1 Create</h1>
-<form action="<c:url value='/Entity1ServletCreate'/>" method="post">
-	User    :<input type="text" name="username" value="${form.username }"/>
-	<span style="color: red; font-weight: 900">${errors.username }</span>
+  <h1>Terrain Create</h1>
+<form action="<c:url value='/TerrainServletCreate'/>" method="post">
+	Terrain Type    :<input type="text" name="terrain_type" value="${form.terrain_type}"/>
+	<span style="color: red; font-weight: 900">${errors.terrain_type }</span>
 	<br/>
-	Password：<input type="password" name="password" value="${form.password }"/>
-	<span style="color: red; font-weight: 900">${errors.password }</span>
+	Minerals<input type="text" name="minerals" value="${form.minerals}"/>
+	<span style="color: red; font-weight: 900">${errors.minerals}</span>
 	<br/>
-	Email	：<input type="text" name="email" value="${form.email }"/>
-	<span style="color: red; font-weight: 900">${errors.email }</span>
+	Soil	：<input type="text" name="soil" value="${form.soil}"/>
+	<span style="color: red; font-weight: 900">${errors.soil}</span>
 	<br/>
-	<input type="submit" value="Create Entity1"/>
+	Fertilizer<input type="text" name="fertilizer" value="${form.fertilizer}"/>
+	<span style="color: red; font-weight: 900">${errors.fertilizer }</span>
+	<br/>
+	<input type="submit" value="Create Terrain"/>
 </form>
   </body>
 </html>

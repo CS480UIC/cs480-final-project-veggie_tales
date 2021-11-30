@@ -17,7 +17,7 @@ CREATE INDEX predatorIndex
 ON predator (vore_type);
 
 CREATE INDEX seasonIndex
-ON season (season_name,temperature);
+ON season (season,temperature);
 
 CREATE INDEX terrainIndex
 ON terrain (soil);

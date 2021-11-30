@@ -63,7 +63,7 @@ AS
 SELECT rainfall, city, humidity
 FROM climate c
 INNER JOIN visitor_location v
-ON c.climate_name = v.climate
+ON c.climate = v.climate
 WHERE (v.city = 'Lagos' OR v.city = 'Karachi')
 GROUP BY c.rainfall, v.city, c.humidity
 ORDER BY c.humidity;
@@ -84,15 +84,15 @@ ORDER BY measurement ASC;
 
 CREATE VIEW PlantTemperature
 AS
-SELECT season_name, temperature, plant_name
+SELECT season, temperature, plant_name
 FROM season s
 INNER JOIN plant p
-ON s.season_name = p.growth_season
+ON s.season = p.growth_season
 WHERE temperature >
 	(SELECT AVG(temperature) 
 	FROM season
 	WHERE temperature > 50)
-GROUP BY season_name, temperature, plant_name
+GROUP BY season, temperature, plant_name
 ORDER BY temperature DESC;
 
 

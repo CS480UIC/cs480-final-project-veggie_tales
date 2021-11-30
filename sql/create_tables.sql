@@ -16,11 +16,11 @@ CREATE TABLE predator (
 );
 
 CREATE TABLE climate (
-    climate_name VARCHAR(30) NOT NULL,
+    climate VARCHAR(30) NOT NULL,
     rainfall TINYINT NOT NULL,
     humidity TINYINT NOT NULL,
 
-    PRIMARY KEY (climate_name)
+    PRIMARY KEY (climate)
 );
 
 CREATE TABLE terrain (
@@ -51,11 +51,11 @@ CREATE TABLE photo (
 
 
 CREATE TABLE season (
-    season_name VARCHAR(10) NOT NULL,
+    season VARCHAR(10) NOT NULL,
     temperature TINYINT NOT NULL,
     duration TINYINT NOT NULL,
 
-    PRIMARY KEY(season_name)
+    PRIMARY KEY(season)
 );
 
 CREATE TABLE visitor_location (
@@ -67,7 +67,7 @@ CREATE TABLE visitor_location (
     terrain VARCHAR(30) NOT NULL,
 
     PRIMARY KEY(zip_code),
-    FOREIGN KEY (climate) REFERENCES climate(climate_name),
+    FOREIGN KEY (climate) REFERENCES climate(climate),
     FOREIGN KEY (terrain) REFERENCES terrain(terrain_type)
 		ON DELETE CASCADE
         ON UPDATE CASCADE
@@ -84,7 +84,7 @@ CREATE TABLE plant (
   
     PRIMARY KEY(plant_name),
     FOREIGN KEY (plant_name) REFERENCES edible(crop),
-    FOREIGN KEY (growth_season) REFERENCES season(season_name),
+    FOREIGN KEY (growth_season) REFERENCES season(season),
     FOREIGN KEY (plant_discoverer) REFERENCES discoverer(discoverer_name),
     FOREIGN KEY (photo_id) REFERENCES photo(photo_id),
     FOREIGN KEY (plant_predator) REFERENCES predator(species)

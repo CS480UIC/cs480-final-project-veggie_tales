@@ -54,10 +54,10 @@ DROP TABLE IF EXISTS `climate`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `climate` (
-  `climate_name` varchar(30) NOT NULL,
+  `climate` varchar(30) NOT NULL,
   `rainfall` tinyint NOT NULL,
   `humidity` tinyint NOT NULL,
-  PRIMARY KEY (`climate_name`)
+  PRIMARY KEY (`climate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -229,7 +229,7 @@ CREATE TABLE `plant` (
   KEY `photo_id` (`photo_id`),
   KEY `plant_predator` (`plant_predator`),
   CONSTRAINT `plant_ibfk_1` FOREIGN KEY (`plant_name`) REFERENCES `edible` (`crop`),
-  CONSTRAINT `plant_ibfk_2` FOREIGN KEY (`growth_season`) REFERENCES `season` (`season_name`),
+  CONSTRAINT `plant_ibfk_2` FOREIGN KEY (`growth_season`) REFERENCES `season` (`season`),
   CONSTRAINT `plant_ibfk_3` FOREIGN KEY (`plant_discoverer`) REFERENCES `discoverer` (`discoverer_name`),
   CONSTRAINT `plant_ibfk_4` FOREIGN KEY (`photo_id`) REFERENCES `photo` (`photo_id`),
   CONSTRAINT `plant_ibfk_5` FOREIGN KEY (`plant_predator`) REFERENCES `predator` (`species`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -282,7 +282,7 @@ DROP TABLE IF EXISTS `planttemperature`;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `planttemperature` AS SELECT 
- 1 AS `season_name`,
+ 1 AS `season`,
  1 AS `temperature`,
  1 AS `plant_name`*/;
 SET character_set_client = @saved_cs_client;
@@ -360,10 +360,10 @@ DROP TABLE IF EXISTS `season`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `season` (
-  `season_name` varchar(10) NOT NULL,
+  `season` varchar(10) NOT NULL,
   `temperature` tinyint NOT NULL,
   `duration` tinyint NOT NULL,
-  PRIMARY KEY (`season_name`)
+  PRIMARY KEY (`season`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -459,7 +459,7 @@ CREATE TABLE `visitor_location` (
   UNIQUE KEY `zip_code` (`zip_code`),
   KEY `climate` (`climate`),
   KEY `terrain` (`terrain`),
-  CONSTRAINT `visitor_location_ibfk_1` FOREIGN KEY (`climate`) REFERENCES `climate` (`climate_name`),
+  CONSTRAINT `visitor_location_ibfk_1` FOREIGN KEY (`climate`) REFERENCES `climate` (`climate`),
   CONSTRAINT `visitor_location_ibfk_2` FOREIGN KEY (`terrain`) REFERENCES `terrain` (`terrain_type`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -505,7 +505,7 @@ UNLOCK TABLES;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `cityhumidity` AS select `c`.`rainfall` AS `rainfall`,`v`.`city` AS `city`,`c`.`humidity` AS `humidity` from (`climate` `c` join `visitor_location` `v` on((`c`.`climate_name` = `v`.`climate`))) where ((`v`.`city` = 'Lagos') or (`v`.`city` = 'Karachi')) group by `c`.`rainfall`,`v`.`city`,`c`.`humidity` order by `c`.`humidity` */;
+/*!50001 VIEW `cityhumidity` AS select `c`.`rainfall` AS `rainfall`,`v`.`city` AS `city`,`c`.`humidity` AS `humidity` from (`climate` `c` join `visitor_location` `v` on((`c`.`climate` = `v`.`climate`))) where ((`v`.`city` = 'Lagos') or (`v`.`city` = 'Karachi')) group by `c`.`rainfall`,`v`.`city`,`c`.`humidity` order by `c`.`humidity` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -613,7 +613,7 @@ UNLOCK TABLES;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `planttemperature` AS select `s`.`season_name` AS `season_name`,`s`.`temperature` AS `temperature`,`p`.`plant_name` AS `plant_name` from (`season` `s` join `plant` `p` on((`s`.`season_name` = `p`.`growth_season`))) where (`s`.`temperature` > (select avg(`season`.`temperature`) from `season` where (`season`.`temperature` > 50))) group by `s`.`season_name`,`s`.`temperature`,`p`.`plant_name` order by `s`.`temperature` desc */;
+/*!50001 VIEW `planttemperature` AS select `s`.`season` AS `season`,`s`.`temperature` AS `temperature`,`p`.`plant_name` AS `plant_name` from (`season` `s` join `plant` `p` on((`s`.`season` = `p`.`growth_season`))) where (`s`.`temperature` > (select avg(`season`.`temperature`) from `season` where (`season`.`temperature` > 50))) group by `s`.`season`,`s`.`temperature`,`p`.`plant_name` order by `s`.`temperature` desc */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;

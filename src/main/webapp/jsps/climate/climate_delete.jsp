@@ -22,7 +22,7 @@
   
   <body>
   <h1>Delete Climate</h1>
-<form action="<c:url value='/Climate1ServletDelete'/>" method="post">
+<form action="<c:url value='/ClimateServletDelete'/>" method="post">
 	<input type="hidden" name="method" value="search"/>
 	Delete Climate Type   :<input type="text" name="climate" value="${form.climate }"/>
 	<span style="color: red; font-weight: 900">${errors.climate }</span>
