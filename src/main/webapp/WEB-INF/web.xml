@@ -295,6 +295,58 @@
   </servlet-mapping>
   
   
+  
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>PredatorServletCreate</display-name>
+    <servlet-name>PredatorServletCreate</servlet-name>
+    <servlet-class>predator.web.servlet.PredatorServletCreate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PredatorServletCreate</servlet-name>
+    <url-pattern>/PredatorServletCreate</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>PredatorServletRead</display-name>
+    <servlet-name>PredatorServletRead</servlet-name>
+    <servlet-class>predator.web.servlet.PredatorServletRead</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PredatorServletRead</servlet-name>
+    <url-pattern>/PredatorServletRead</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>PredatorServletUpdate</display-name>
+    <servlet-name>PredatorServletUpdate</servlet-name>
+    <servlet-class>predator.web.servlet.PredatorServletUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PredatorServletUpdate</servlet-name>
+    <url-pattern>/PredatorServletUpdate</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>PredatorServletDelete</display-name>
+    <servlet-name>PredatorServletDelete</servlet-name>
+    <servlet-class>predator.web.servlet.PredatorServletDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PredatorServletDelete</servlet-name>
+    <url-pattern>/PredatorServletDelete</url-pattern>
+  </servlet-mapping>
+  
+  
+  
     <servlet>
     <description></description>
     <display-name>EdibleServletCreate</display-name>

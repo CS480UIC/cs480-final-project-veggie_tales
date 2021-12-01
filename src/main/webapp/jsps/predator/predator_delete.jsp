@@ -22,10 +22,10 @@
   
   <body>
   <h1>Delete Predator</h1>
-<form action="<c:url value='/Entity1ServletDelete'/>" method="post">
+<form action="<c:url value='/PredatorServletDelete'/>" method="post">
 	<input type="hidden" name="method" value="search"/>
-	Delete Species   :<input type="text" name="username" value="${form.username }"/>
-	<span style="color: red; font-weight: 900">${errors.username }</span>
+	Delete Species   :<input type="text" name="species" value="${form.species}"/>
+	<span style="color: red; font-weight: 900">${errors.species}</span>
 	<br/>
 	<input type="submit" value="Delete Predator"/>
 </form>

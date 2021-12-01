@@ -1,4 +1,4 @@
-package edible.web.servlet;
+package predator.web.servlet;
 
 import java.io.IOException;
 
@@ -7,20 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edible.dao.EdibleDao;
-import edible.domain.Edible;
+import predator.dao.PredatorDao;
+import predator.domain.Predator;
 
 /**
  * Servlet implementation class UserServlet
  */
 
-public class EdibleServletRead extends HttpServlet {
+public class PredatorServletRead extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public EdibleServletRead() {
+	public PredatorServletRead() {
 		super();
 	}
 
@@ -39,11 +39,11 @@ public class EdibleServletRead extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Edible edible = null;
-		EdibleDao edibleDao = new EdibleDao();
+		Predator predator = null;
+		PredatorDao predatorDao = new PredatorDao();
 
 		try {
-			edible = edibleDao.findByCrop(request.getParameter("crop"));
+			predator = predatorDao.findBySpecies(request.getParameter("species"));
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (InstantiationException e1) {
@@ -52,13 +52,13 @@ public class EdibleServletRead extends HttpServlet {
 			e1.printStackTrace();
 		}
 
-		if (edible.getCrop() != null) {
-			System.out.println(edible);
-			request.setAttribute("edible", edible);
-			request.getRequestDispatcher("/jsps/edible/edible_read_output.jsp").forward(request, response);
+		if (predator.getSpecies() != null) {
+			System.out.println(predator);
+			request.setAttribute("predator", predator);
+			request.getRequestDispatcher("/jsps/predator/predator_read_output.jsp").forward(request, response);
 		} else {
-			request.setAttribute("msg", "Entity not found");
-			request.getRequestDispatcher("/jsps/edible/edible_read_output.jsp").forward(request, response);
+			request.setAttribute("msg", "Predator not found");
+			request.getRequestDispatcher("/jsps/predator/predator_read_output.jsp").forward(request, response);
 		}
 	}
 }

@@ -23,10 +23,10 @@
   <body>
   <h1>Read Predator</h1>
 <p style="color: red; font-weight: 900">${msg }</p>
-<form action="<c:url value='/Entity1ServletRead'/>" method="post">
+<form action="<c:url value='/PredatorServletRead'/>" method="post">
 	<input type="hidden" name="method" value="regist"/>
-	Species    :<input type="text" name="username" value="${form.username }"/>
-	<span style="color: red; font-weight: 900">${errors.username }</span>
+	Species    :<input type="text" name="species" value="${form.species}"/>
+	<span style="color: red; font-weight: 900">${errors.species}</span>
 	<br/>
 <%-- 	Password：<input type="password" name="password" value="${form.password }"/>
 	<span style="color: red; font-weight: 900">${errors.password }</span>

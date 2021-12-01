@@ -1,4 +1,4 @@
-package edible.web.servlet;
+package predator.web.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,21 +11,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edible.domain.Edible;
-import edible.service.EdibleException;
-import edible.service.EdibleService;
+import predator.domain.Predator;
+import predator.service.PredatorException;
+import predator.service.PredatorService;
 
 /**
  * Servlet implementation class UserServlet
  */
 
-public class EdibleServletCreate extends HttpServlet {
+public class PredatorServletCreate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public EdibleServletCreate() {
+	public PredatorServletCreate() {
 		super();
 	}
 
@@ -44,24 +44,24 @@ public class EdibleServletCreate extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		EdibleService edibleservice = new EdibleService();
+		PredatorService predatorservice = new PredatorService();
 		Map<String, String[]> paramMap = request.getParameterMap();
-		Edible form = new Edible();
+		Predator form = new Predator();
 		List<String> info = new ArrayList<String>();
 
 		for (String name : paramMap.keySet()) {
 			String[] values = paramMap.get(name);
 			info.add(values[0]);
 		}
-		form.setCrop(info.get(0));
-		form.setDishes(info.get(1));
-		form.setAllergen(info.get(2));
+		form.setSpecies(info.get(0));
+		form.setName(info.get(1));
+		form.setVoreType(info.get(2));
 
 		try {
-			edibleservice.create(form);
+			predatorservice.create(form);
 			response.sendRedirect(request.getContextPath() + "/jsps/main.jsp");
 
-		} catch (ClassNotFoundException | EdibleException e) {
+		} catch (ClassNotFoundException | PredatorException e) {
 			e.printStackTrace();
 		} catch (InstantiationException e) {
 			e.printStackTrace();

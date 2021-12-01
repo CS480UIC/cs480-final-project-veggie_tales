@@ -22,15 +22,15 @@
   
   <body>
   <h1>Predator Create</h1>
-<form action="<c:url value='/Entity1ServletCreate'/>" method="post">
-	Species    :<input type="text" name="username" value="${form.username }"/>
-	<span style="color: red; font-weight: 900">${errors.username }</span>
+<form action="<c:url value='/PredatorServletCreate'/>" method="post">
+	Species    :<input type="text" name="species" value="${form.species}"/>
+	<span style="color: red; font-weight: 900">${errors.species }</span>
 	<br/>
-	Name：<input type="password" name="password" value="${form.password }"/>
-	<span style="color: red; font-weight: 900">${errors.password }</span>
+	Name：<input type="text" name="name" value="${form.name}"/>
+	<span style="color: red; font-weight: 900">${errors.name}</span>
 	<br/>
-	Vore type 	：<input type="text" name="email" value="${form.email }"/>
-	<span style="color: red; font-weight: 900">${errors.email }</span>
+	Vore type 	：<input type="text" name="vore_type" value="${form.vore_type}"/>
+	<span style="color: red; font-weight: 900">${errors.vore_type }</span>
 	<br/>
 	<input type="submit" value="Create Predator"/>
 </form>

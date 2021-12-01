@@ -1,4 +1,4 @@
-package edible.dao;
+package predator.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,12 +9,12 @@ import java.sql.SQLException;
 //import java.util.ArrayList;
 //import java.util.List;
 
-import edible.domain.Edible;
+import predator.domain.Predator;
 
 /**
  * DDL functions performed in database
  */
-public class EdibleDao {
+public class PredatorDao {
 
 	/**
 	 * user name to connect to the database
@@ -26,35 +26,35 @@ public class EdibleDao {
 	 */
 	private String MySQL_password = "passw"; // TODO change password
 
-	public Edible findByCrop(String crop)
+	public Predator findBySpecies(String species)
 			throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-		Edible edible = new Edible();
+		Predator predator = new Predator();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
-			String sql = "select * from edible where crop=?";
+			String sql = "select * from predator where species=?";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
-			preparestatement.setString(1, crop);
+			preparestatement.setString(1, species);
 			ResultSet resultSet = preparestatement.executeQuery();
 
 			while (resultSet.next()) {
-				String crop_name = resultSet.getString("crop");
-				if (crop_name.equals(crop)) {
-					edible.setCrop(resultSet.getString("crop"));
-					edible.setDishes(resultSet.getString("dishes"));
-					edible.setAllergen(resultSet.getString("allergen"));
+				String species_name = resultSet.getString("species");
+				if (species_name.equals(species)) {
+					predator.setSpecies(resultSet.getString("species"));
+					predator.setName(resultSet.getString("name"));
+					predator.setVoreType(resultSet.getString("vore_type"));
 				}
 			}
 			connect.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-		return edible;
+		return predator;
 	}
 
 	/**
-	 * insert Edible
+	 * insert Predator
 	 * 
 	 * @param form
 	 * @throws ClassNotFoundException
@@ -62,17 +62,17 @@ public class EdibleDao {
 	 * @throws InstantiationException
 	 */
 
-	public void add(Edible form) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+	public void add(Predator form) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
 
-			String sql = "insert into edible values(?,?,?)";
+			String sql = "insert into predator values(?,?,?)";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
-			preparestatement.setString(1, form.getCrop());
-			preparestatement.setString(2, form.getDishes());
-			preparestatement.setString(3, form.getAllergen());
+			preparestatement.setString(1, form.getSpecies());
+			preparestatement.setString(2, form.getName());
+			preparestatement.setString(3, form.getVoreType());
 			preparestatement.executeUpdate();
 			connect.close();
 		} catch (SQLException e) {
@@ -86,17 +86,17 @@ public class EdibleDao {
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 */
-	public void update(Edible form) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+	public void update(Predator form) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
 
-			String sql = "UPDATE edible SET allergen = ?, dishes = ? where crop = ?;";
+			String sql = "UPDATE predator SET name = ?, vore_type = ? where species = ?;";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
-			preparestatement.setString(1, form.getAllergen());
-			preparestatement.setString(2, form.getDishes());
-			preparestatement.setString(3, form.getCrop());
+			preparestatement.setString(1, form.getName());
+			preparestatement.setString(2, form.getVoreType());
+			preparestatement.setString(3, form.getSpecies());
 			System.out.println(preparestatement);
 			preparestatement.executeUpdate();
 			connect.close();
@@ -111,15 +111,15 @@ public class EdibleDao {
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 */
-	public void delete(String crop) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+	public void delete(String species) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
 
-			String sql = "delete from edible where crop = ?";
+			String sql = "delete from predator where species = ?";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
-			preparestatement.setString(1, crop);
+			preparestatement.setString(1, species);
 			preparestatement.executeUpdate();
 			connect.close();
 		} catch (SQLException e) {

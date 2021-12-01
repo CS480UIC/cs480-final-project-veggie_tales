@@ -1,4 +1,4 @@
-package edible.web.servlet;
+package predator.web.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,20 +11,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edible.dao.EdibleDao;
-import edible.domain.Edible;
+import predator.dao.PredatorDao;
+import predator.domain.Predator;
 
 /**
  * Servlet implementation class UserServlet
  */
 
-public class EdibleServletUpdate extends HttpServlet {
+public class PredatorServletUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public EdibleServletUpdate() {
+	public PredatorServletUpdate() {
 		super();
 	}
 
@@ -45,12 +45,12 @@ public class EdibleServletUpdate extends HttpServlet {
 			throws ServletException, IOException {
 
 		String method = request.getParameter("method");
-		EdibleDao edibledao = new EdibleDao();
-		Edible edible = null;
+		PredatorDao predatordao = new PredatorDao();
+		Predator predator = null;
 
 		if (method.equals("search")) {
 			try {
-				edible = edibledao.findByCrop(request.getParameter("crop"));
+				predator = predatordao.findBySpecies(request.getParameter("species"));
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			} catch (InstantiationException e1) {
@@ -59,31 +59,31 @@ public class EdibleServletUpdate extends HttpServlet {
 				e1.printStackTrace();
 			}
 
-			if (edible.getCrop() != null) {
-				request.setAttribute("edible", edible);
-				request.getRequestDispatcher("/jsps/edible/edible_update_output.jsp").forward(request, response);
+			if (predator.getSpecies() != null) {
+				request.setAttribute("predator", predator);
+				request.getRequestDispatcher("/jsps/predator/predator_update_output.jsp").forward(request, response);
 
 			} else {
 				request.setAttribute("msg", "Entity not found");
-				request.getRequestDispatcher("/jsps/edible/edible_read_output.jsp").forward(request, response);
+				request.getRequestDispatcher("/jsps/predator/predator_read_output.jsp").forward(request, response);
 			}
 		} else if (method.equals("update")) {
 			Map<String, String[]> paramMap = request.getParameterMap();
-			Edible form = new Edible();
+			Predator form = new Predator();
 			List<String> info = new ArrayList<String>();
 
 			for (String name : paramMap.keySet()) {
 				String[] values = paramMap.get(name);
 				info.add(values[0]);
 			}
-			form.setDishes(info.get(2));
-			form.setAllergen(info.get(3));
-			form.setCrop(request.getParameter("crop"));
+			form.setName(info.get(2));
+			form.setVoreType(info.get(3));
+			form.setSpecies(request.getParameter("species"));
 //			System.out.println(info.get(0));
 			System.out.println(info.get(2));
 			System.out.println(info.get(3));
 			try {
-				edibledao.update(form);
+				predatordao.update(form);
 
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
@@ -92,8 +92,8 @@ public class EdibleServletUpdate extends HttpServlet {
 			} catch (IllegalAccessException e1) {
 				e1.printStackTrace();
 			}
-			request.setAttribute("msg", "Entity Updated");
-			request.getRequestDispatcher("/jsps/edible/edible_read_output.jsp").forward(request, response);
+			request.setAttribute("msg", "Predator Updated");
+			request.getRequestDispatcher("/jsps/predator/predator_read_output.jsp").forward(request, response);
 		}
 	}
 }

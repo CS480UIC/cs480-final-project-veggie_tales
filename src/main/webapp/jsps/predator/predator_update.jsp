@@ -22,10 +22,10 @@
   
   <body>
   <h1>Predator</h1>
-<form action="<c:url value='/Entity1ServletUpdate'/>" method="post">
+<form action="<c:url value='/PredatorServletUpdate'/>" method="post">
 	<input type="hidden" name="method" value="search"/>
-	Update Species   :<input type="text" name="username" value="${form.username }"/>
-	<span style="color: red; font-weight: 900">${errors.username }</span>
+	Update Species   :<input type="text" name="species" value="${form.species}"/>
+	<span style="color: red; font-weight: 900">${errors.species }</span>
 	<br/>
 	<input type="submit" value="Update Predator"/>
 </form>
