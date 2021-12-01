@@ -22,15 +22,15 @@
   
   <body>
   <h1>Create Discoverer</h1>
-<form action="<c:url value='/Entity1ServletCreate'/>" method="post">
-	Discoverer Name    :<input type="text" name="username" value="${form.username }"/>
-	<span style="color: red; font-weight: 900">${errors.username }</span>
+<form action="<c:url value='/DiscovererServletCreate'/>" method="post">
+	Discoverer Name    :<input type="text" name="discoverer_name" value="${form.getDiscovererName() }"/>
+	<span style="color: red; font-weight: 900">${errors.getDiscovererName()  }</span>
 	<br/>
-	Date	：<input type="password" name="password" value="${form.password }"/>
-	<span style="color: red; font-weight: 900">${errors.password }</span>
+	Date	：<input type="text" name="date" value="${form.getDate() }"/>
+	<span style="color: red; font-weight: 900">${errors.getDate()  }</span>
 	<br/>
-	Location	：<input type="text" name="email" value="${form.email }"/>
-	<span style="color: red; font-weight: 900">${errors.email }</span>
+	Location	：<input type="text" name="discovered_location" value="${form.getDiscoveredLocation() }"/>
+	<span style="color: red; font-weight: 900">${errors.getDiscoveredLocation() }</span>
 	<br/>
 	<input type="submit" value="Create Discoverer"/>
 </form>

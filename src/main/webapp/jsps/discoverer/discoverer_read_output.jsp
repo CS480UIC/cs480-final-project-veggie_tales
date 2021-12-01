@@ -21,14 +21,14 @@
   </head>
   
   <body>
-  <h1>Read Entity Output</h1>
+  <h1>Read Discoverer Output</h1>
 <p style="color: red; font-weight: 900">${msg }</p>
 <form>
-	User    :<input type="text" name="username" value="${entity1.username }" disabled/>
+	Discoverer Name    :<input type="text" name="discoverer_name" value="${discoverer.getDiscovererName() }" disabled/>
 	<br/>
-	Password：<input type="text" name="password" value="${entity1.password }" disabled/>
+	Date ：<input type="text" name="password" value="${discoverer.getDate() }" disabled/>
 	<br/>
-	Email	：<input type="text" name="email" value="${entity1.email }" disabled/>
+	Location Discovered	：<input type="text" name="email" value="${discoverer.getDiscoveredLocation() }" disabled/>
 	<br/>
 </form>
 

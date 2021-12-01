@@ -21,19 +21,19 @@
   </head>
   
   <body>
-  <h1>Delete Entity</h1>
+  <h1>Delete Discoverer</h1>
 <p style="color: red; font-weight: 900">${msg }</p>
-<form action="<c:url value='/Entity1ServletDelete'/>" method="post">
+<form action="<c:url value='/DiscovererServletDelete'/>" method="post">
 	<input type="hidden" name="method" value="delete"/>
-		<input type="hidden" name="username" value="${entity1.username }"/>
-	User    :<input type="text" name="username" value="${entity1.username }" disabled/>
+		<input type="hidden" name="discoverer_name" value="${discoverer.getDiscovererName()}"/>
+	Discoverer Name    :<input type="text" name="discoverer_name" value="${discoverer.getDiscovererName() }" disabled/>
 	<br/>
 	
-	Password：<input type="text" name="password" value="${entity1.password }" disabled/>
+	Date Discovered：<input type="text" name="date" value="${discoverer.getDate() }" disabled/>
 	<br/>
-	Email	：<input type="text" name="email" value="${entity1.email }" disabled/>
+	Location Discovered	：<input type="text" name="discovered_location" value="${discoverer.getDiscoveredLocation() }" disabled/>
 	<br/>
-	<input type="submit" value="Delete Entity1"/>
+	<input type="submit" value="Delete Discoverer"/>
 </form>
 
 </body>

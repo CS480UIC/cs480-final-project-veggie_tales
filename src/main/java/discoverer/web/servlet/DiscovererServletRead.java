@@ -1,4 +1,4 @@
-package edible.web.servlet;
+package discoverer.web.servlet;
 
 import java.io.IOException;
 
@@ -7,20 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edible.dao.EdibleDao;
-import edible.domain.Edible;
+import discoverer.dao.DiscovererDao;
+import discoverer.domain.Discoverer;
 
 /**
  * Servlet implementation class UserServlet
  */
 
-public class EdibleServletRead extends HttpServlet {
+public class DiscovererServletRead extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public EdibleServletRead() {
+	public DiscovererServletRead() {
 		super();
 	}
 
@@ -39,11 +39,11 @@ public class EdibleServletRead extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Edible edible = null;
-		EdibleDao edibleDao = new EdibleDao();
+		Discoverer discoverer = null;
+		DiscovererDao discovererDao = new DiscovererDao();
 
 		try {
-			edible = edibleDao.findByCrop(request.getParameter("crop"));
+			discoverer = discovererDao.findByName(request.getParameter("discoverer_name"));
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (InstantiationException e1) {
@@ -52,13 +52,13 @@ public class EdibleServletRead extends HttpServlet {
 			e1.printStackTrace();
 		}
 
-		if (edible.getCrop() != null) {
-			System.out.println(edible);
-			request.setAttribute("edible", edible);
-			request.getRequestDispatcher("/jsps/edible/edible_read_output.jsp").forward(request, response);
+		if (discoverer.getDiscovererName() != null) {
+			System.out.println(discoverer);
+			request.setAttribute("discoverer", discoverer);
+			request.getRequestDispatcher("/jsps/discoverer/discoverer_read_output.jsp").forward(request, response);
 		} else {
 			request.setAttribute("msg", "Entity not found");
-			request.getRequestDispatcher("/jsps/edible/edible_read_output.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsps/discoverer/discoverer_read_output.jsp").forward(request, response);
 		}
 	}
 }

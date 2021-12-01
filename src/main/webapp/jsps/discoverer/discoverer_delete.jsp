@@ -22,10 +22,10 @@
   
   <body>
   <h1>Delete Discoverer</h1>
-<form action="<c:url value='/Entity1ServletDelete'/>" method="post">
+<form action="<c:url value='/DiscovererServletDelete'/>" method="post">
 	<input type="hidden" name="method" value="search"/>
-	Delete Discoverer   :<input type="text" name="username" value="${form.username }"/>
-	<span style="color: red; font-weight: 900">${errors.username }</span>
+	Delete Discoverer   :<input type="text" name="discoverer_name" value="${form.discoverer_name }"/>
+	<span style="color: red; font-weight: 900">${errors.discoverer_name }</span>
 	<br/>
 	<input type="submit" value="Delete Discoverer"/>
 </form>

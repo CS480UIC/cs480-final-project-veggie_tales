@@ -26,7 +26,7 @@ public class DiscovererDao {
 	 */
 	private String MySQL_password = "passw"; // TODO change password
 
-	public Discoverer findByCrop(String discoverer_name)
+	public Discoverer findByName(String discoverer_name)
 			throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 		Discoverer  discoverer = new Discoverer();
 		try {
@@ -41,9 +41,9 @@ public class DiscovererDao {
 			while (resultSet.next()) {
 				String tmp_name = resultSet.getString("discoverer_name");
 				if (tmp_name.equals(discoverer_name)) {
-					discoverer.setDiscoverer_name(resultSet.getString("discoverer_name"));
+					discoverer.setDiscovererName(resultSet.getString("discoverer_name"));
 					discoverer.setDate(resultSet.getString("date"));
-					discoverer.setDiscovered_location(resultSet.getString("discovered_location"));
+					discoverer.setDiscoveredLocation(resultSet.getString("discovered_location"));
 				}
 			}
 			connect.close();
@@ -68,11 +68,11 @@ public class DiscovererDao {
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
 
-			String sql = "insert into edible values(?,?,?)";
+			String sql = "insert into discoverer values(?,?,?)";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
-			preparestatement.setString(1, form.getCrop());
-			preparestatement.setString(2, form.getDishes());
-			preparestatement.setString(3, form.getAllergen());
+			preparestatement.setString(1, form.getDiscovererName());
+			preparestatement.setString(2, form.getDate());
+			preparestatement.setString(3, form.getDiscoveredLocation());
 			preparestatement.executeUpdate();
 			connect.close();
 		} catch (SQLException e) {
@@ -86,17 +86,17 @@ public class DiscovererDao {
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 */
-	public void update(Edible form) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+	public void update(Discoverer form) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
 
-			String sql = "UPDATE edible SET allergen = ?, dishes = ? where crop = ?;";
+			String sql = "UPDATE discoverer SET date = ?, discovered_location = ? where discoverer_name = ?;";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
-			preparestatement.setString(1, form.getAllergen());
-			preparestatement.setString(2, form.getDishes());
-			preparestatement.setString(3, form.getCrop());
+			preparestatement.setString(1, form.getDate());
+			preparestatement.setString(2, form.getDiscoveredLocation());
+			preparestatement.setString(3, form.getDiscovererName());
 			System.out.println(preparestatement);
 			preparestatement.executeUpdate();
 			connect.close();
@@ -111,15 +111,15 @@ public class DiscovererDao {
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 */
-	public void delete(String crop) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+	public void delete(String name) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
 
-			String sql = "delete from edible where crop = ?";
+			String sql = "delete from discoverer where discoverer_name = ?";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
-			preparestatement.setString(1, crop);
+			preparestatement.setString(1, name);
 			preparestatement.executeUpdate();
 			connect.close();
 		} catch (SQLException e) {

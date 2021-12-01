@@ -17,14 +17,14 @@ public class Discoverer {
 	/**
 	 * @return the discoverer_name
 	 */
-	public String getDiscoverer_name() {
+	public String getDiscovererName() {
 		return discoverer_name;
 	}
 
 	/**
 	 * @param discoverer_name the discoverer_name to set
 	 */
-	public void setDiscoverer_name(String discoverer_name) {
+	public void setDiscovererName(String discoverer_name) {
 		this.discoverer_name = discoverer_name;
 	}
 
@@ -45,14 +45,14 @@ public class Discoverer {
 	/**
 	 * @return the discovered_location
 	 */
-	public String getDiscovered_location() {
+	public String getDiscoveredLocation() {
 		return discovered_location;
 	}
 
 	/**
 	 * @param discovered_location the discovered_location to set
 	 */
-	public void setDiscovered_location(String discovered_location) {
+	public void setDiscoveredLocation(String discovered_location) {
 		this.discovered_location = discovered_location;
 	}
 

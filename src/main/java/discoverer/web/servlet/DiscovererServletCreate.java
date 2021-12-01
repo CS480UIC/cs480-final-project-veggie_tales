@@ -1,4 +1,4 @@
-package edible.web.servlet;
+package discoverer.web.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,21 +11,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edible.domain.Edible;
-import edible.service.EdibleException;
-import edible.service.EdibleService;
+import discoverer.domain.Discoverer;
+import discoverer.service.DiscovererException;
+import discoverer.service.DiscovererService;
 
 /**
  * Servlet implementation class UserServlet
  */
 
-public class EdibleServletCreate extends HttpServlet {
+public class DiscovererServletCreate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public EdibleServletCreate() {
+	public DiscovererServletCreate() {
 		super();
 	}
 
@@ -44,24 +44,24 @@ public class EdibleServletCreate extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		EdibleService edibleservice = new EdibleService();
+		DiscovererService discovererservice = new DiscovererService();
 		Map<String, String[]> paramMap = request.getParameterMap();
-		Edible form = new Edible();
+		Discoverer form = new Discoverer();
 		List<String> info = new ArrayList<String>();
 
 		for (String name : paramMap.keySet()) {
 			String[] values = paramMap.get(name);
 			info.add(values[0]);
 		}
-		form.setCrop(info.get(0));
-		form.setDishes(info.get(1));
-		form.setAllergen(info.get(2));
+		form.setDiscovererName(info.get(0));
+		form.setDate(info.get(1));
+		form.setDiscoveredLocation(info.get(2));
 
 		try {
-			edibleservice.create(form);
+			discovererservice.create(form);
 			response.sendRedirect(request.getContextPath() + "/jsps/main.jsp");
 
-		} catch (ClassNotFoundException | EdibleException e) {
+		} catch (ClassNotFoundException | DiscovererException e) {
 			e.printStackTrace();
 		} catch (InstantiationException e) {
 			e.printStackTrace();

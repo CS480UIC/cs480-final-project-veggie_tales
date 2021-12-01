@@ -21,11 +21,11 @@
   </head>
   
   <body>
-  <h1>Update</h1>
-<form action="<c:url value='/Entity1ServletUpdate'/>" method="post">
+  <h1>Update Discoverer</h1>
+<form action="<c:url value='/DiscovererServletUpdate'/>" method="post">
 	<input type="hidden" name="method" value="search"/>
-	Update Discoverer   :<input type="text" name="username" value="${form.username }"/>
-	<span style="color: red; font-weight: 900">${errors.username }</span>
+	Update Discoverer   :<input type="text" name="discoverer_name" value="${form.getDiscovererName() }"/>
+	<span style="color: red; font-weight: 900">${errors.getDiscovererName() }</span>
 	<br/>
 	<input type="submit" value="Update Discoverer"/>
 </form>

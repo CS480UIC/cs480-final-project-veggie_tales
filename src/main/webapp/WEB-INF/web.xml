@@ -245,6 +245,56 @@
   </servlet-mapping>
 
 
+
+
+  <servlet>
+    <description></description>
+    <display-name>DiscovererServletCreate</display-name>
+    <servlet-name>DiscovererServletCreate</servlet-name>
+    <servlet-class>discoverer.web.servlet.DiscovererServletCreate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DiscovererServletCreate</servlet-name>
+    <url-pattern>/DiscovererServletCreate</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>DiscovererServletRead</display-name>
+    <servlet-name>DiscovererServletRead</servlet-name>
+    <servlet-class>discoverer.web.servlet.DiscovererServletRead</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DiscovererServletRead</servlet-name>
+    <url-pattern>/DiscovererServletRead</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>DiscovererServletUpdate</display-name>
+    <servlet-name>DiscovererServletUpdate</servlet-name>
+    <servlet-class>discoverer.web.servlet.DiscovererServletUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DiscovererServletUpdate</servlet-name>
+    <url-pattern>/DiscovererServletUpdate</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>DiscovererServletDelete</display-name>
+    <servlet-name>DiscovererServletDelete</servlet-name>
+    <servlet-class>discoverer.web.servlet.DiscovererServletDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DiscovererServletDelete</servlet-name>
+    <url-pattern>/DiscovererServletDelete</url-pattern>
+  </servlet-mapping>
+  
+  
     <servlet>
     <description></description>
     <display-name>EdibleServletCreate</display-name>

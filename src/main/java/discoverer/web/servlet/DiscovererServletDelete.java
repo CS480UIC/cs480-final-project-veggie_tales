@@ -1,30 +1,25 @@
-package edible.web.servlet;
+package discoverer.web.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edible.dao.EdibleDao;
-import edible.domain.Edible;
+import discoverer.dao.DiscovererDao;
+import discoverer.domain.Discoverer;
 
 /**
  * Servlet implementation class UserServlet
  */
 
-public class EdibleServletUpdate extends HttpServlet {
+public class DiscovererServletDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public EdibleServletUpdate() {
+	public DiscovererServletDelete() {
 		super();
 	}
 
@@ -43,14 +38,13 @@ public class EdibleServletUpdate extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		String method = request.getParameter("method");
-		EdibleDao edibledao = new EdibleDao();
-		Edible edible = null;
-
+		DiscovererDao discovererDao = new DiscovererDao();
+		Discoverer discoverer = null;
 		if (method.equals("search")) {
 			try {
-				edible = edibledao.findByCrop(request.getParameter("crop"));
+				discoverer = discovererDao.findByName(request.getParameter("discoverer_name"));
+				System.out.println(discoverer);
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			} catch (InstantiationException e1) {
@@ -59,32 +53,17 @@ public class EdibleServletUpdate extends HttpServlet {
 				e1.printStackTrace();
 			}
 
-			if (edible.getCrop() != null) {
-				request.setAttribute("edible", edible);
-				request.getRequestDispatcher("/jsps/edible/edible_update_output.jsp").forward(request, response);
-
+			if (discoverer.getDiscovererName() != null) {
+				System.out.println(discoverer);
+				request.setAttribute("discoverer", discoverer);
+				request.getRequestDispatcher("/jsps/discoverer/discoverer_delete_output.jsp").forward(request, response);
 			} else {
 				request.setAttribute("msg", "Entity not found");
-				request.getRequestDispatcher("/jsps/edible/edible_read_output.jsp").forward(request, response);
+				request.getRequestDispatcher("/jsps/discoverer/discoverer_read_output.jsp").forward(request, response);
 			}
-		} else if (method.equals("update")) {
-			Map<String, String[]> paramMap = request.getParameterMap();
-			Edible form = new Edible();
-			List<String> info = new ArrayList<String>();
-
-			for (String name : paramMap.keySet()) {
-				String[] values = paramMap.get(name);
-				info.add(values[0]);
-			}
-			form.setDishes(info.get(2));
-			form.setAllergen(info.get(3));
-			form.setCrop(request.getParameter("crop"));
-//			System.out.println(info.get(0));
-			System.out.println(info.get(2));
-			System.out.println(info.get(3));
+		} else if (method.equals("delete")) {
 			try {
-				edibledao.update(form);
-
+				discovererDao.delete(request.getParameter("discoverer_name"));
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			} catch (InstantiationException e1) {
@@ -92,8 +71,8 @@ public class EdibleServletUpdate extends HttpServlet {
 			} catch (IllegalAccessException e1) {
 				e1.printStackTrace();
 			}
-			request.setAttribute("msg", "Entity Updated");
-			request.getRequestDispatcher("/jsps/edible/edible_read_output.jsp").forward(request, response);
+			request.setAttribute("msg", "Entity Deleted");
+			request.getRequestDispatcher("/jsps/discoverer/discoverer_read_output.jsp").forward(request, response);
 		}
 	}
 }

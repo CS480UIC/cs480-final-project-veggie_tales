@@ -23,10 +23,10 @@
   <body>
   <h1>Read Discoverer</h1>
 <p style="color: red; font-weight: 900">${msg }</p>
-<form action="<c:url value='/Entity1ServletRead'/>" method="post">
+<form action="<c:url value='/DiscovererServletRead'/>" method="post">
 	<input type="hidden" name="method" value="regist"/>
-	Discoverer Name    :<input type="text" name="username" value="${form.username }"/>
-	<span style="color: red; font-weight: 900">${errors.username }</span>
+	Discoverer Name    :<input type="text" name="discoverer_name" value="${form.discoverer_name }"/>
+	<span style="color: red; font-weight: 900">${errors.discoverer_name }</span>
 	<br/>
 <%-- 	Password：<input type="password" name="password" value="${form.password }"/>
 	<span style="color: red; font-weight: 900">${errors.password }</span>
