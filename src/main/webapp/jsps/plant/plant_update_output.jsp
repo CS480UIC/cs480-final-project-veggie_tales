@@ -46,8 +46,8 @@
 			<h1>Update the values below</h1>
 			<form action="<c:url value='/PlantServletUpdate'/>" method="post">
 				<input type="hidden" name="method" value="update" />
-				<input type="hidden" name="username" value="${plant.getPlantName() }" />
-				Average Measurement：<input type="password" name="measurement" value="${plant.getMeasurement() }" />
+				<input type="hidden" name="plant_name" value="${plant.getPlantName() }" />
+				Average Measurement：<input type="text" name="measurement" value="${plant.getMeasurement() }" />
 				<span style="color: red; font-weight: 900">${errors.getMeasurement() }</span>
 				<br />
 				Classification ：<input type="text" name="classification" value="${plant.getClassification() }" />

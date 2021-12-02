@@ -99,9 +99,14 @@ public class PlantDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
-
-			String sql = "UPDATE plant SET measurement = ?, classification = ?, growth_season = ?, plant_discoverer = ?, photo_id= ?, plant_predator = ?, where plant_name = ?;";
+			
+			String sql = "SET FOREIGN_KEY_CHECKS = 0;";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
+			System.out.println(preparestatement);
+			preparestatement.executeUpdate();
+
+			sql = "UPDATE plant SET measurement = ?, classification = ?, growth_season = ?, plant_discoverer = ?, photo_id= ?, plant_predator = ? where plant_name = ?;";
+			preparestatement = connect.prepareStatement(sql);
 			preparestatement.setString(1, form.getMeasurement());
 			preparestatement.setString(2, form.getClassification());
 			preparestatement.setString(3, form.getGrowthSeason());
@@ -111,6 +116,12 @@ public class PlantDao {
 			preparestatement.setString(7, form.getPlantName());
 			System.out.println(preparestatement);
 			preparestatement.executeUpdate();
+			
+			sql = "SET FOREIGN_KEY_CHECKS = 1;";
+			preparestatement = connect.prepareStatement(sql);
+			System.out.println(preparestatement);
+			preparestatement.executeUpdate();
+			
 			connect.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -130,10 +141,22 @@ public class PlantDao {
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
 
-			String sql = "delete from plant where plant_name = ?";
+			String sql = "SET FOREIGN_KEY_CHECKS = 0;";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
-			preparestatement.setString(1, plant_name);
+			System.out.println(preparestatement);
 			preparestatement.executeUpdate();
+			
+			sql = "delete from plant where plant_name = ?";
+			preparestatement = connect.prepareStatement(sql);
+			preparestatement.setString(1, plant_name);
+			System.out.println(preparestatement);
+			preparestatement.executeUpdate();
+			
+			sql = "SET FOREIGN_KEY_CHECKS = 1;";
+			preparestatement = connect.prepareStatement(sql);
+			System.out.println(preparestatement);
+			preparestatement.executeUpdate();
+			
 			connect.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

@@ -24,7 +24,7 @@
 		<body>
 			<h1>Read Plant</h1>
 			<p style="color: red; font-weight: 900">${msg }</p>
-			<form action="<c:url value='/PlantRead'/>" method="post">
+			<form action="<c:url value='/PlantServletRead'/>" method="post">
 				<input type="hidden" name="method" value="regist" />
 				Plant Name :<input type="text" name="plant_name" value="${plant.plant_name }" />
 				<span style="color: red; font-weight: 900">${errors.plant_name }</span>

@@ -26,7 +26,7 @@
 			<p style="color: red; font-weight: 900">${msg }</p>
 			<form action="<c:url value='/PlantServletDelete'/>" method="post">
 				<input type="hidden" name="method" value="delete" />
-				<input type="hidden" name="username" value="${plant.getPlantName() }" />
+				<input type="hidden" name="plant_name" value="${plant.getPlantName() }" />
 				Name of Plant :<input type="text" name="plant_name" value="${plant.getPlantName() }" disabled />
 				<br />
 

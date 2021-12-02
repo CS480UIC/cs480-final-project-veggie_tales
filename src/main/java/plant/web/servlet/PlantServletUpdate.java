@@ -101,7 +101,7 @@ public class PlantServletUpdate extends HttpServlet {
 			} catch (IllegalAccessException e1) {
 				e1.printStackTrace();
 			}
-			request.setAttribute("msg", "Entity Updated");
+			request.setAttribute("msg", "Plant Updated");
 			request.getRequestDispatcher("/jsps/plant/plant_read_output.jsp").forward(request, response);
 		}
 	}
