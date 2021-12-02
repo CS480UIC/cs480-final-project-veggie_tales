@@ -99,28 +99,32 @@ public class VisitorLocationDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
-
-			String sql = "SET SQL_SAFE_UPDATES = 0;";
-			PreparedStatement preparestatement = connect.prepareStatement(sql);
+			String sql = null;
+			PreparedStatement preparestatement = null;
+			
+			sql = "SET FOREIGN_KEY_CHECKS = 0;";
+			preparestatement = connect.prepareStatement(sql);
 			preparestatement.executeUpdate();
+			System.out.println(sql);
 			
 			sql = "UPDATE visitor_location SET continent = ?, country = ?, city = ?, climate = ?, terrain = ? where zip_code = ?;";
 			System.out.println(sql);
+			
 			preparestatement = connect.prepareStatement(sql);
-			preparestatement.setString(1, form.getZip());
-			preparestatement.setString(2, form.getContinent());
-			preparestatement.setString(3, form.getCountry());
-			preparestatement.setString(4, form.getCity());
-			preparestatement.setString(5, form.getClimate());
-			preparestatement.setString(6, form.getTerrain());
+			preparestatement.setString(1, form.getContinent());
+			preparestatement.setString(2, form.getCountry());
+			preparestatement.setString(3, form.getCity());
+			preparestatement.setString(4, form.getClimate());
+			preparestatement.setString(5, form.getTerrain());
+			preparestatement.setString(6, form.getZip());
+			System.out.println(preparestatement);
 			preparestatement.executeUpdate();
 			
 			
-			preparestatement.executeUpdate();
-			
-			sql = "SET SQL_SAFE_UPDATES = 1;";
+			sql = "SET FOREIGN_KEY_CHECKS = 1;";
 			preparestatement = connect.prepareStatement(sql);
 			preparestatement.executeUpdate();
+			System.out.println(sql);
 			
 			connect.close();
 			
@@ -136,23 +140,28 @@ public class VisitorLocationDao {
 	 * @throws IllegalAccessException
 	 */
 	public void delete(String zip_code) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+		// TO-DO: zip_code is always coming in as null, must debug
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
+			System.out.println(zip_code);
 			
-			String sql = "SET SQL_SAFE_UPDATES = 0;";
+			String sql = "SET FOREIGN_KEY_CHECKS = 0;";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
+			System.out.println(preparestatement);
 			preparestatement.executeUpdate();
 			
 			sql = "delete from visitor_location where zip_code = ?;";
-			System.out.println(sql);
+			
 			preparestatement = connect.prepareStatement(sql);
 			preparestatement.setString(1, zip_code);
+			System.out.println(preparestatement);
 			preparestatement.executeUpdate();
 			
-			sql = "SET SQL_SAFE_UPDATES = 1;";
+			sql = "SET FOREIGN_KEY_CHECKS = 1;";
 			preparestatement = connect.prepareStatement(sql);
+			System.out.println(preparestatement);
 			preparestatement.executeUpdate();
 			
 			connect.close();

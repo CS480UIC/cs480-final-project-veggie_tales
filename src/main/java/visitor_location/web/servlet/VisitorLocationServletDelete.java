@@ -64,6 +64,7 @@ public class VisitorLocationServletDelete extends HttpServlet {
 			}
 		} else if (method.equals("delete")) {
 			try {
+				System.out.println( "servlet delete request.getParameter(\"zip_code\") result: " + request.getParameter("zip_code"));
 				vlDao.delete(request.getParameter("zip_code"));
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
@@ -72,7 +73,7 @@ public class VisitorLocationServletDelete extends HttpServlet {
 			} catch (IllegalAccessException e1) {
 				e1.printStackTrace();
 			}
-			request.setAttribute("msg", "Entity Deleted");
+			request.setAttribute("msg", "Location Deleted");
 			request.getRequestDispatcher("/jsps/visitor_location/visitor_location_read_output.jsp").forward(request,
 					response);
 		}

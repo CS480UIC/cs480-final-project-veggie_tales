@@ -83,7 +83,7 @@ CREATE TABLE plant (
     plant_predator VARCHAR(50),
   
     PRIMARY KEY(plant_name),
---    FOREIGN KEY (plant_name) REFERENCES edible(crop),
+    FOREIGN KEY (plant_name) REFERENCES edible(crop),
     FOREIGN KEY (growth_season) REFERENCES season(season),
     FOREIGN KEY (plant_discoverer) REFERENCES discoverer(discoverer_name),
     FOREIGN KEY (photo_id) REFERENCES photo(photo_id),

@@ -25,8 +25,8 @@
 			<h1>Delete Visitor Location</h1>
 			<form action="<c:url value='/VisitorLocationServletDelete'/>" method="post">
 				<input type="hidden" name="method" value="search" />
-				Delete Zip Code :<input type="text" name="zip_code" value="${form.getZip() }" />
-				<span style="color: red; font-weight: 900">${errors.getZip() }</span>
+				Delete Zip Code :<input type="text" name="zip_code" value="${form.zip_code}" />
+				<span style="color: red; font-weight: 900">${errors.zip_code }</span>
 				<br />
 				<input type="submit" value="Delete Visitor Location" />
 			</form>

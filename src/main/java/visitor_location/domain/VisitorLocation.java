@@ -82,6 +82,6 @@ public class VisitorLocation {
 	public String toString() {
 		return "User [zip_code = " + zip_code + ", continent = "
 				+ continent + ", country = "
-				+ country + ", city = " + city + "]";
+				+ country + ", city = " + city + ", climate = " + climate+ ", terrain = " + terrain + "]";
 	}
 }
