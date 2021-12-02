@@ -1,4 +1,4 @@
-package visitor_location.domain;
+package visitor_location.service;
 
 import visitor_location.dao.VisitorLocationDao;
 import visitor_location.domain.VisitorLocation;

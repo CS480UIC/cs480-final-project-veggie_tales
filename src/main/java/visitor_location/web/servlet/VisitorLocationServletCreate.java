@@ -53,10 +53,14 @@ public class VisitorLocationServletCreate extends HttpServlet {
 			String[] values = paramMap.get(name);
 			info.add(values[0]);
 		}
+		System.out.println(info);
 		form.setZip(info.get(0));
 		form.setContinent(info.get(1));
 		form.setCountry(info.get(2));
-		form.setCity(info.get(2));
+		form.setCity(info.get(3));
+		form.setClimate(info.get(4));
+		form.setTerrain(info.get(5));
+		
 
 		try {
 			vlservice.create(form);

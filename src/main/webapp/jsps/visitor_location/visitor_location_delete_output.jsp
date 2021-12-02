@@ -26,15 +26,18 @@
 			<p style="color: red; font-weight: 900">${msg }</p>
 			<form action="<c:url value='/VisitorLocationServletDelete'/>" method="post">
 				<input type="hidden" name="method" value="delete" />
-				<input type="hidden" name="zip" value="${visitor_location.zip_code }" />
-				Zip Code :<input type="text" name="zip" value="${visitor_location.zip_code }" disabled />
+				<input type="hidden" name="zip" value="${visitor_location.getZip() }" />
+				Zip Code :<input type="text" name="zip" value="${visitor_location.getZip()}" disabled />
 				<br />
-
-				Continent：<input type="text" name="continent" value="${visitor_location.continent }" disabled />
+				Continent：<input type="text" name="continent" value="${visitor_location.getContinent() }" disabled />
 				<br />
-				Country：<input type="text" name="country" value="${visitor_location.country }" disabled />
+				Country：<input type="text" name="country" value="${visitor_location.getCountry() }" disabled />
 				<br />
-				City ：<input type="text" name="city" value="${visitor_location.city}" disabled />
+				City ：<input type="text" name="city" value="${visitor_location.getCity()}" disabled />
+				<br />
+				Climate ：<input type="text" name="climate" value="${visitor_location.getClimate()}" disabled />
+				<br />
+				Terrain ：<input type="text" name="terrain" value="${visitor_location.getTerrain()}" disabled />
 				<br />
 				<input type="submit" value="Delete VisitorLocation" />
 			</form>

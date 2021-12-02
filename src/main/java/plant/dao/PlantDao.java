@@ -26,9 +26,9 @@ public class PlantDao {
 	 */
 	private String MySQL_password = "passw"; // TODO change password
 
-	public Plant findByCrop(String plant_name)
+	public Plant findByPlantName(String plant_name)
 			throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-		Plant plant = new Plants();
+		Plant plant = new Plant();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
@@ -41,13 +41,13 @@ public class PlantDao {
 			while (resultSet.next()) {
 				String plant_namer = resultSet.getString("plant_name");
 				if (plant_namer.equals(plant_name)) {
-					plant.setCrop(resultSet.getString("plant_name"));
-					plant.setDishes(resultSet.getString("measurement"));
-					plant.setAllergen(resultSet.getString("classification"));
-					plant.setAllergen(resultSet.getString("growth_season"));
-					plant.setAllergen(resultSet.getString("plant_discoverer"));
-					plant.setAllergen(resultSet.getString("photo_id"));
-					plant.setAllergen(resultSet.getString("plant_predator"));
+					plant.setPlantName(resultSet.getString("plant_name"));
+					plant.setMeasurement(resultSet.getString("measurement"));
+					plant.setClassification(resultSet.getString("classification"));
+					plant.setGrowthSeason(resultSet.getString("growth_season"));
+					plant.setPlantDiscoverer(resultSet.getString("plant_discoverer"));
+					plant.setPhotoId(resultSet.getString("photo_id"));
+					plant.setPlantPredator(resultSet.getString("plant_predator"));
 				}
 			}
 			connect.close();
@@ -66,21 +66,21 @@ public class PlantDao {
 	 * @throws InstantiationException
 	 */
 
-	public void add(Planr form) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+	public void add(Plant form) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
 
-			String sql = "insert into plant values(?,?,?)";
+			String sql = "insert into plant values(?,?,?,?,?,?,?)";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
-			preparestatement.setString(1, form.getPlant_name());
+			preparestatement.setString(1, form.getPlantName());
 			preparestatement.setString(2, form.getMeasurement());
 			preparestatement.setString(3, form.getClassification());
-			preparestatement.setString(4, form.getGrowthseason());
-			preparestatement.setString(5, form.getPlantdiscoverer());
-			preparestatement.setString(6, form.getPhotoId);
-			preparestatement.setString(7, form.getPlantpredator());
+			preparestatement.setString(4, form.getGrowthSeason());
+			preparestatement.setString(5, form.getPlantDiscoverer());
+			preparestatement.setString(6, form.getPhotoId());
+			preparestatement.setString(7, form.getPlantPredator());
 			preparestatement.executeUpdate();
 			connect.close();
 		} catch (SQLException e) {
@@ -104,11 +104,11 @@ public class PlantDao {
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
 			preparestatement.setString(1, form.getMeasurement());
 			preparestatement.setString(2, form.getClassification());
-			preparestatement.setString(3, form.getGrowthseason());
-			preparestatement.setString(4, form.getPlantdiscoverer());
-			preparestatement.setString(5, form.getPhotoId);
-			preparestatement.setString(6, form.getPlantpredator());
-			preparestatement.setString(7, form.getPlant_name());
+			preparestatement.setString(3, form.getGrowthSeason());
+			preparestatement.setString(4, form.getPlantDiscoverer());
+			preparestatement.setString(5, form.getPhotoId());
+			preparestatement.setString(6, form.getPlantPredator());
+			preparestatement.setString(7, form.getPlantName());
 			System.out.println(preparestatement);
 			preparestatement.executeUpdate();
 			connect.close();

@@ -50,7 +50,7 @@ public class PlantServletUpdate extends HttpServlet {
 
 		if (method.equals("search")) {
 			try {
-				plant = plantdao.findByPlant_name(request.getParameter("plant_name"));
+				plant = plantdao.findByPlantName(request.getParameter("plant_name"));
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			} catch (InstantiationException e1) {
@@ -59,7 +59,7 @@ public class PlantServletUpdate extends HttpServlet {
 				e1.printStackTrace();
 			}
 
-			if (plant.getPlant_name) != null) {
+			if (plant.getPlantName() != null) {
 				request.setAttribute("plant", plant);
 				request.getRequestDispatcher("/jsps/plant/plant_update_output.jsp").forward(request, response);
 
@@ -78,11 +78,11 @@ public class PlantServletUpdate extends HttpServlet {
 			}
 			form.setMeasurement(info.get(2));
 			form.setClassification(info.get(3));
-			form.setGrowthseason(info.get(4));
-			form.setPlantdiscoverer(info.get(5));
-			form.setPhotoid(info.get(6));
-			form.setPlantpredator(info.get(7));
-			form.setPlant_name(request.getParameter("plant_name"));
+			form.setGrowthSeason(info.get(4));
+			form.setPlantDiscoverer(info.get(5));
+			form.setPhotoId(info.get(6));
+			form.setPlantPredator(info.get(7));
+			form.setPlantName(request.getParameter("plant_name"));
 			// System.out.println(info.get(0));
 			System.out.println(info.get(2));
 			System.out.println(info.get(3));

@@ -70,7 +70,7 @@ public class TerrainServletDelete extends HttpServlet {
 			} catch (IllegalAccessException e1) {
 				e1.printStackTrace();
 			}
-			request.setAttribute("msg", "Entity Deleted");
+			request.setAttribute("msg", "Terrain Deleted");
 			request.getRequestDispatcher("/jsps/terrain/terrain_read_output.jsp").forward(request, response);
 		}
 	}

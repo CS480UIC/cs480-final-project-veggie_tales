@@ -13,13 +13,13 @@ import plant.domain.Plant;
  * Servlet implementation class UserServlet
  */
 
-public class EdibleServletDelete extends HttpServlet {
+public class PlantServletDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public PlantervletDelete() {
+	public PlantServletDelete() {
 		super();
 	}
 
@@ -43,7 +43,7 @@ public class EdibleServletDelete extends HttpServlet {
 		Plant plant = null;
 		if (method.equals("search")) {
 			try {
-				plant = plantDao.findByCrop(request.getParameter("plant_name"));
+				plant = plantDao.findByPlantName(request.getParameter("plant_name"));
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			} catch (InstantiationException e1) {
@@ -52,7 +52,7 @@ public class EdibleServletDelete extends HttpServlet {
 				e1.printStackTrace();
 			}
 
-			if (plant.getPlant_name() != null) {
+			if (plant.getPlantName() != null) {
 				System.out.println(plant);
 				request.setAttribute("plant", plant);
 				request.getRequestDispatcher("/jsps/plant/plant_delete_output.jsp").forward(request, response);
@@ -62,7 +62,7 @@ public class EdibleServletDelete extends HttpServlet {
 			}
 		} else if (method.equals("delete")) {
 			try {
-				edibleDao.delete(request.getParameter("plant_name"));
+				plantDao.delete(request.getParameter("plant_name"));
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			} catch (InstantiationException e1) {

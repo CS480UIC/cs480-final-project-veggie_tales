@@ -7,7 +7,7 @@
 
 		<head>
 
-			<title>Create Visitor Location</title>
+			<title>Read Visitor Location</title>
 
 			<meta http-equiv="pragma" content="no-cache">
 			<meta http-equiv="cache-control" content="no-cache">
@@ -22,11 +22,15 @@
 		</head>
 
 		<body>
-			<h1>Create Visitor Location</h1>
-			<form action="<c:url value='/VisitorLocationServletCreate'/>" method="post">
+			<h1>Read Visitor Location</h1>
+			<p style="color: red; font-weight: 900">${msg }</p>
+			<form action="<c:url value='/VisitorLocationServletRead'/>" method="post">
+				<input type="hidden" name="method" value="regist" />
+
 				Zip Code :<input type="text" name="zip_code" value="${form.zip_code }" />
-				<span style="color: red; font-weight: 900">${errors.username }</span>
+				<span style="color: red; font-weight: 900">${errors.zip_code }</span>
 				<br />
+				<!--
 				Continent :<input type="text" name="continent" value="${form.continent }" />
 				<span style="color: red; font-weight: 900">${errors.username }</span>
 				<br />
@@ -36,7 +40,9 @@
 				City ：<input type="text" name="city" value="${form.city }" />
 				<span style="color: red; font-weight: 900">${errors.email }</span>
 				<br />
-				<input type="submit" value="Create Visitor Location" />
+				-->
+
+				<input type="submit" value="Read Visitor Location" />
 			</form>
 		</body>
 

@@ -7,7 +7,7 @@
 
 		<head>
 
-			<title>Update Visitor Location</title>
+			<title>Delete Visitor Location</title>
 
 			<meta http-equiv="pragma" content="no-cache">
 			<meta http-equiv="cache-control" content="no-cache">
@@ -22,13 +22,13 @@
 		</head>
 
 		<body>
-			<h1>Update</h1>
-			<form action="<c:url value='/VisitorLocationServletUpdate'/>" method="post">
+			<h1>Delete Visitor Location</h1>
+			<form action="<c:url value='/VisitorLocationServletDelete'/>" method="post">
 				<input type="hidden" name="method" value="search" />
-				Update Zip :<input type="text" name="zip" value="${form.zip_code }" />
-				<span style="color: red; font-weight: 900">${errors.username }</span>
+				Delete Zip Code :<input type="text" name="zip_code" value="${form.getZip() }" />
+				<span style="color: red; font-weight: 900">${errors.getZip() }</span>
 				<br />
-				<input type="submit" value="Update Visitor Location" />
+				<input type="submit" value="Delete Visitor Location" />
 			</form>
 		</body>
 

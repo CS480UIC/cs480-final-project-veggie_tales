@@ -53,13 +53,13 @@ public class PlantServletCreate extends HttpServlet {
 			String[] values = paramMap.get(name);
 			info.add(values[0]);
 		}
-		form.setPlant_name(info.get(0));
+		form.setPlantName(info.get(0));
 		form.setMeasurement(info.get(1));
 		form.setClassification(info.get(2));
-		form.setGrowthseason(info.get(3));
-		form.setPlantdiscoverer(info.get(4));
-		form.setPhotoid()info.get(5));
-		form.setPlantpredator(info.get(6));
+		form.setGrowthSeason(info.get(3));
+		form.setPlantDiscoverer(info.get(4));
+		form.setPhotoId(info.get(5));
+		form.setPlantPredator(info.get(6));
 
 		try {
 			plantservice.create(form);

@@ -43,7 +43,7 @@ public class PlantServletRead extends HttpServlet {
 		PlantDao plantDao = new PlantDao();
 
 		try {
-			plant = plantDao.findByPlant_name(request.getParameter("plant_name"));
+			plant = plantDao.findByPlantName(request.getParameter("plant_name"));
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (InstantiationException e1) {
@@ -52,7 +52,7 @@ public class PlantServletRead extends HttpServlet {
 			e1.printStackTrace();
 		}
 
-		if (plant.getPlant_name() != null) {
+		if (plant.getPlantName() != null) {
 			System.out.println(plant);
 			request.setAttribute("plant", plant);
 			request.getRequestDispatcher("/jsps/plant/plant_read_output.jsp").forward(request, response);

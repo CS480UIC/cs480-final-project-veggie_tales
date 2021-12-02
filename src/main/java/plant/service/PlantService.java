@@ -23,8 +23,8 @@ public class PlantService {
 	public void create(Plant form)
 			throws PlantException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 		// check the primary key of Edible
-		Plant plant = plantDao.findByPlant_name(form.getPlant_name());
-		if (plant.getPlant_name() != null && plant.getPlant_name().equals(form.getPlant_name()))
+		Plant plant = plantDao.findByPlantName(form.getPlantName());
+		if (plant.getPlantName() != null && plant.getPlantName().equals(form.getPlantName()))
 			throw new PlantException("This plant_name name has been created!");
 		plantDao.add(form);
 	}
@@ -41,8 +41,8 @@ public class PlantService {
 	 */
 	public void login(Plant form)
 			throws PlantException, ClassNotFoundException, InstantiationException, IllegalAccessException {
-		Plant plant_name = plantDao.findByPlant_name(form.getPlant_name());
-		if (plant_name.getPlant_name() == null)
+		Plant plant_name = plantDao.findByPlantName(form.getPlantName());
+		if (plant_name.getPlantName() == null)
 			throw new PlantException("The plant is not in the database");
 
 		String classification = plant_name.getClassification();

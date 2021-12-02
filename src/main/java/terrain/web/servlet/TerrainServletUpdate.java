@@ -64,7 +64,7 @@ public class TerrainServletUpdate extends HttpServlet {
 				request.getRequestDispatcher("/jsps/terrain/terrain_update_output.jsp").forward(request, response);
 
 			} else {
-				request.setAttribute("msg", "Entity not found");
+				request.setAttribute("msg", "Terrain not found");
 				request.getRequestDispatcher("/jsps/terrain/terrain_read_output.jsp").forward(request, response);
 			}
 		} else if (method.equals("update")) {
@@ -94,7 +94,7 @@ public class TerrainServletUpdate extends HttpServlet {
 			} catch (IllegalAccessException e1) {
 				e1.printStackTrace();
 			}
-			request.setAttribute("msg", "Entity Updated");
+			request.setAttribute("msg", "Terrain Updated");
 			request.getRequestDispatcher("/jsps/terrain/terrain_read_output.jsp").forward(request, response);
 		}
 	}

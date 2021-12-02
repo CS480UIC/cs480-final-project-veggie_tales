@@ -45,7 +45,8 @@ public class VisitorLocationDao {
 					vl.setContinent(resultSet.getString("continent"));
 					vl.setCountry(resultSet.getString("country"));
 					vl.setCity(resultSet.getString("city"));
-
+					vl.setClimate(resultSet.getString("climate"));
+					vl.setTerrain(resultSet.getString("terrain"));
 				}
 			}
 			connect.close();
@@ -71,12 +72,14 @@ public class VisitorLocationDao {
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
 
-			String sql = "insert into visitor_location values(?,?,?,?)";
+			String sql = "insert into visitor_location values(?,?,?,?,?,?)";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
 			preparestatement.setString(1, form.getZip());
 			preparestatement.setString(2, form.getContinent());
 			preparestatement.setString(3, form.getCountry());
 			preparestatement.setString(4, form.getCity());
+			preparestatement.setString(5, form.getClimate());
+			preparestatement.setString(6, form.getTerrain());
 			preparestatement.executeUpdate();
 			connect.close();
 		} catch (SQLException e) {
@@ -97,14 +100,30 @@ public class VisitorLocationDao {
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
 
-			String sql = "UPDATE visitor_location SET continent = ?, country = ?, city = ? where zip_code = ?;";
+			String sql = "SET SQL_SAFE_UPDATES = 0;";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
+			preparestatement.executeUpdate();
+			
+			sql = "UPDATE visitor_location SET continent = ?, country = ?, city = ?, climate = ?, terrain = ? where zip_code = ?;";
+			System.out.println(sql);
+			preparestatement = connect.prepareStatement(sql);
 			preparestatement.setString(1, form.getZip());
 			preparestatement.setString(2, form.getContinent());
 			preparestatement.setString(3, form.getCountry());
 			preparestatement.setString(4, form.getCity());
+			preparestatement.setString(5, form.getClimate());
+			preparestatement.setString(6, form.getTerrain());
 			preparestatement.executeUpdate();
+			
+			
+			preparestatement.executeUpdate();
+			
+			sql = "SET SQL_SAFE_UPDATES = 1;";
+			preparestatement = connect.prepareStatement(sql);
+			preparestatement.executeUpdate();
+			
 			connect.close();
+			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -121,11 +140,21 @@ public class VisitorLocationDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
-
-			String sql = "delete from visitor_location where zip_code = ?";
+			
+			String sql = "SET SQL_SAFE_UPDATES = 0;";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
+			preparestatement.executeUpdate();
+			
+			sql = "delete from visitor_location where zip_code = ?;";
+			System.out.println(sql);
+			preparestatement = connect.prepareStatement(sql);
 			preparestatement.setString(1, zip_code);
 			preparestatement.executeUpdate();
+			
+			sql = "SET SQL_SAFE_UPDATES = 1;";
+			preparestatement = connect.prepareStatement(sql);
+			preparestatement.executeUpdate();
+			
 			connect.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

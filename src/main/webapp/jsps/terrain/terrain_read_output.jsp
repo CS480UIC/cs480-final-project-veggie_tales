@@ -6,7 +6,7 @@
 <html>
   <head>
     
-    <title>Read Entity Output</title>
+    <title>Read Terrain Output</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -21,14 +21,16 @@
   </head>
   
   <body>
-  <h1>Read Entity Output</h1>
+  <h1>Read Terrain Output</h1>
 <p style="color: red; font-weight: 900">${msg }</p>
 <form>
-	User    :<input type="text" name="username" value="${entity1.username }" disabled/>
+	Terrain    :<input type="text" name="terrain_type" value="${terrain.getTerraintype() }" disabled/>
 	<br/>
-	Password：<input type="text" name="password" value="${entity1.password }" disabled/>
+	Minerals：<input type="text" name="minerals" value="${terrain.getMinerals()}" disabled/>
 	<br/>
-	Email	：<input type="text" name="email" value="${entity1.email }" disabled/>
+	Soil	：<input type="text" name="soil" value="${terrain.getSoil()}" disabled/>
+	<br/>
+	Fertilizer	：<input type="text" name="fertilizer" value="${terrain.getFertilizer()}" disabled/>
 	<br/>
 </form>
 

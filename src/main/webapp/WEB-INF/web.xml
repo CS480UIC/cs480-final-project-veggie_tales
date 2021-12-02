@@ -394,6 +394,57 @@
     <url-pattern>/EdibleServletDelete</url-pattern>
   </servlet-mapping>
   
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>PlantServletCreate</display-name>
+    <servlet-name>PlantServletCreate</servlet-name>
+    <servlet-class>plant.web.servlet.PlantServletCreate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PlantServletCreate</servlet-name>
+    <url-pattern>/PlantServletCreate</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>PlantServletRead</display-name>
+    <servlet-name>PlantServletRead</servlet-name>
+    <servlet-class>plant.web.servlet.PlantServletRead</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PlantServletRead</servlet-name>
+    <url-pattern>/PlantServletRead</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>PlantServletUpdate</display-name>
+    <servlet-name>PlantServletUpdate</servlet-name>
+    <servlet-class>plant.web.servlet.PlantServletUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PlantServletUpdate</servlet-name>
+    <url-pattern>/PlantServletUpdate</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>PlantServletDelete</display-name>
+    <servlet-name>PlantServletDelete</servlet-name>
+    <servlet-class>plant.web.servlet.PlantServletDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PlantServletDelete</servlet-name>
+    <url-pattern>/PlantServletDelete</url-pattern>
+  </servlet-mapping>
+  
+  
+  
   <servlet>
     <description></description>
     <display-name>UserServletRegister</display-name>

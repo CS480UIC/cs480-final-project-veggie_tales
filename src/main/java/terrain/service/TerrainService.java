@@ -43,12 +43,12 @@ public class TerrainService {
 			throws TerrainException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 		Terrain terrain_type = terrainDao.findByterraintype(form.getTerraintype());
 		if (terrain_type.getTerraintype() == null)
-			throw new TerrainException("The crop is not in the database");
+			throw new TerrainException("The terrain is not in the database");
 
-		String minerals = terrain_type.getMinerals();
-
-		if (minerals != null && !minerals.equals(form.getMinerals()))
-			throw new TerrainException(" The Minerals do not exist");
+//		String minerals = terrain_type.getMinerals();
+//
+//		if (minerals != null && !minerals.equals(form.getMinerals()))
+//			throw new TerrainException(" The Minerals do not exist");
 
 	}
 }

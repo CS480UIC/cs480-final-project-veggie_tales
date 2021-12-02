@@ -81,6 +81,8 @@ public class VisitorLocationServletUpdate extends HttpServlet {
 			form.setContinent(info.get(2));
 			form.setCountry(info.get(3));
 			form.setCity(info.get(4));
+			form.setClimate(info.get(5));
+			form.setTerrain(info.get(6));
 			form.setZip(request.getParameter("zip_code"));
 
 			try {

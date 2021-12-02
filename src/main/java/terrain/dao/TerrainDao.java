@@ -69,7 +69,7 @@ public class TerrainDao {
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
 
-			String sql = "insert into terrain values(?,?,?)";
+			String sql = "insert into terrain values(?,?,?,?)";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
 			preparestatement.setString(1, form.getTerraintype());
 			preparestatement.setString(2, form.getMinerals());
@@ -94,7 +94,7 @@ public class TerrainDao {
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
 
-			String sql = "UPDATE terrain SET minerals = ?, soil = ? , fertilizer = ?, where terrain_type = ?;";
+			String sql = "UPDATE terrain SET minerals = ?, soil = ? , fertilizer = ? WHERE terrain_type = ?;";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
 			preparestatement.setString(1, form.getMinerals());
 			preparestatement.setString(2, form.getSoil());
@@ -121,7 +121,7 @@ public class TerrainDao {
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
 
-			String sql = "delete from edible where terrain_type = ?";
+			String sql = "delete from terrain where terrain_type = ?";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
 			preparestatement.setString(1, terrain_type);
 			preparestatement.executeUpdate();

@@ -12,26 +12,26 @@ public class Plant {
 	 */
 
 	private String plant_name; // crop
-	private int measurement;
+	private String measurement;
 	private String classification; // password
 	private String growth_season; // allergen
 	private String plant_discoverer;
-	private int photo_id;
+	private String photo_id;
 	private String plant_predator;
 
-	public String getPlant_name() {
+	public String getPlantName() {
 		return plant_name;
 	}
 
-	public void setPlant_name(String plant_name) {
+	public void setPlantName(String plant_name) {
 		this.plant_name = plant_name;
 	}
 
-	public int getMeasurement() {
+	public String getMeasurement() {
 		return measurement;
 	}
 
-	public void setMeasurement(int measurement) {
+	public void setMeasurement(String measurement) {
 		this.measurement = measurement;
 	}
 
@@ -43,42 +43,43 @@ public class Plant {
 		this.classification = classification;
 	}
 
-	public String getGrowthseason() {
+	public String getGrowthSeason() {
 		return growth_season;
 	}
 
-	public void setGrowthseason(String growth_season) {
-		this.growth_season = growth_season
+	public void setGrowthSeason(String growth_season) {
+		this.growth_season = growth_season;
 	}
 
-	public String getPlantdiscoverer() {
+	public String getPlantDiscoverer() {
 		return plant_discoverer;
 	}
 
-	public void setPlantdiscoverer(String plant_discoverer {
+	public void setPlantDiscoverer(String plant_discoverer) {
 		this.plant_discoverer = plant_discoverer;
 	}
 
-	public int setPhotoid() {
+	public String getPhotoId() {
 		return photo_id;
 	}
 
-	public void setPhotoid(String photo_id) {
-		this.photo_id = photo_id;
+	public void setPhotoId(String id) {
+		this.photo_id = id;
 	}
 
-	public String getPlantpredator() {
+	public String getPlantPredator() {
 		return plant_predator;
 	}
 
-	public void setPlantpredator(String plant_predator) {
+	public void setPlantPredator(String plant_predator) {
 		this.plant_predator = plant_predator;
 	}
 
 	@Override
 	public String toString() {
 		return "User [ plant_name=" + plant_name + ", classification="
-				+ classification + ", growth_season=" + growth_season + ", 
-				plant_discoverer=" + plant_discoverer + ", photo_id=" + photo_id + ", plant_predator=" + plant_predator + " ]";
+				+ classification + ", growth_season=" + growth_season + ", " +
+				"plant_discoverer=" + plant_discoverer + ", photo_id=" + 
+				photo_id + ", plant_predator=" + plant_predator + " ]";
 	}
 }

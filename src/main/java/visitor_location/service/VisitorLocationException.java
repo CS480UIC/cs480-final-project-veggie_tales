@@ -1,4 +1,4 @@
-package visitor_location.domain;
+package visitor_location.service;
 
 public class VisitorLocationException extends Exception {
 

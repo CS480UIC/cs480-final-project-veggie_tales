@@ -15,6 +15,8 @@ public class VisitorLocation {
 	private String country;
 	private String continent;
 	private String city;
+	private String climate;
+	private String terrain;
 
 	public String getZip() {
 		return zip_code;
@@ -33,7 +35,7 @@ public class VisitorLocation {
 	}
 
 	public String getContinent() {
-		return continent
+		return continent;
 	}
 
 	public void setContinent(String continent) {
@@ -46,6 +48,34 @@ public class VisitorLocation {
 
 	public void setCity(String c) {
 		this.city = c;
+	}
+
+	/**
+	 * @return the climate
+	 */
+	public String getClimate() {
+		return climate;
+	}
+
+	/**
+	 * @param climate the climate to set
+	 */
+	public void setClimate(String climate) {
+		this.climate = climate;
+	}
+
+	/**
+	 * @return the terrain
+	 */
+	public String getTerrain() {
+		return terrain;
+	}
+
+	/**
+	 * @param terrain the terrain to set
+	 */
+	public void setTerrain(String terrain) {
+		this.terrain = terrain;
 	}
 
 	@Override
