@@ -445,6 +445,63 @@
   
   
   
+  
+  
+  
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>DatabaseServletCreate</display-name>
+    <servlet-name>DatabaseServletCreate</servlet-name>
+    <servlet-class>database.web.servlet.DatabaseServletCreate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DatabaseServletCreate</servlet-name>
+    <url-pattern>/DatabaseServletCreate</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>DatabaseServletRead</display-name>
+    <servlet-name>DatabaseServletRead</servlet-name>
+    <servlet-class>database.web.servlet.DatabaseServletRead</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DatabaseServletRead</servlet-name>
+    <url-pattern>/DatabaseServletRead</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>DatabaseServletUpdate</display-name>
+    <servlet-name>DatabaseServletUpdate</servlet-name>
+    <servlet-class>database.web.servlet.DatabaseServletUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DatabaseServletUpdate</servlet-name>
+    <url-pattern>/DatabaseServletUpdate</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>DatabaseServletDelete</display-name>
+    <servlet-name>DatabaseServletDelete</servlet-name>
+    <servlet-class>database.web.servlet.DatabaseServletDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DatabaseServletDelete</servlet-name>
+    <url-pattern>/DatabaseServletDelete</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  
   <servlet>
     <description></description>
     <display-name>UserServletRegister</display-name>

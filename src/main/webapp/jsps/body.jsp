@@ -23,6 +23,23 @@
   
   <body>
     <h1>Welcome to our Veggie Tales Project!!!</h1>
+    <c:choose>
+    <c:when test="${!empty sessionScope.session_user }">
+    
+	<h2>Initialize Database</h2>
+	<form action="<c:url value='/DatabaseServletCreate'/>" method="post">
+		<input type="submit" value="Initialize" />
+	</form>
+	
+	<h2>Delete Database</h2>
+	<form action="<c:url value='/DatabaseServletDelete'/>" method="post">
+		<input type="submit" value="Delete" />
+	</form>
+	
+	</c:when>
+	</c:choose>
+	
+		
     
   </body>
 </html>

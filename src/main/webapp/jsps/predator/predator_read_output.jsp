@@ -24,11 +24,11 @@
   <h1>Read Predator Output</h1>
 <p style="color: red; font-weight: 900">${msg }</p>
 <form>
-	Species	:<input type="text" name="username" value="${predator.getSpecies() }" disabled/>
+	Species	:<input type="text" name="species" value="${predator.getSpecies() }" disabled/>
 	<br/>
-	Name ：<input type="text" name="password" value="${predator.getName()}" disabled/>
+	Name ：<input type="text" name="name" value="${predator.getName()}" disabled/>
 	<br/>
-	Vore Type	：<input type="text" name="email" value="${predator.getVoreType()}" disabled/>
+	Vore Type	：<input type="text" name="vore_type" value="${predator.getVoreType()}" disabled/>
 	<br/>
 </form>
 
