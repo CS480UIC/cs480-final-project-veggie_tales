@@ -463,26 +463,26 @@
   
   <servlet>
     <description></description>
-    <display-name>DatabaseServletRead</display-name>
-    <servlet-name>DatabaseServletRead</servlet-name>
-    <servlet-class>database.web.servlet.DatabaseServletRead</servlet-class>
+    <display-name>DatabaseServletAggregate</display-name>
+    <servlet-name>DatabaseServletAggregate</servlet-name>
+    <servlet-class>database.web.servlet.DatabaseServletAggregate</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>DatabaseServletRead</servlet-name>
-    <url-pattern>/DatabaseServletRead</url-pattern>
+    <servlet-name>DatabaseServletAggregate</servlet-name>
+    <url-pattern>/DatabaseServletAggregate</url-pattern>
   </servlet-mapping>
   
   
   
     <servlet>
     <description></description>
-    <display-name>DatabaseServletUpdate</display-name>
-    <servlet-name>DatabaseServletUpdate</servlet-name>
-    <servlet-class>database.web.servlet.DatabaseServletUpdate</servlet-class>
+    <display-name>DatabaseServletComplex</display-name>
+    <servlet-name>DatabaseServletComplex</servlet-name>
+    <servlet-class>database.web.servlet.DatabaseServletComplex</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>DatabaseServletUpdate</servlet-name>
-    <url-pattern>/DatabaseServletUpdate</url-pattern>
+    <servlet-name>DatabaseServletComplex</servlet-name>
+    <url-pattern>/DatabaseServletComplex</url-pattern>
   </servlet-mapping>
   
   
@@ -498,6 +498,17 @@
   </servlet-mapping>
   
   
+  
+  <servlet>
+    <description></description>
+    <display-name>DatabaseServletSimple</display-name>
+    <servlet-name>DatabaseServletSimple</servlet-name>
+    <servlet-class>database.web.servlet.DatabaseServletSimple</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DatabaseServletSimple</servlet-name>
+    <url-pattern>/DatabaseServletSimple</url-pattern>
+  </servlet-mapping>
   
   
   

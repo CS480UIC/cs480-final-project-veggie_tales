@@ -36,6 +36,21 @@
 		<input type="submit" value="Delete" />
 	</form>
 	
+	<h2>Complex Query</h2>
+	<form action="<c:url value='/DatabaseServletComplex'/>" method="post"> <!-- was update -->
+		<input type="submit" value="Complex" />
+	</form>
+	
+	<h2>Aggregate Query</h2>
+	<form action="<c:url value='/DatabaseServletAggregate'/>" method="post"> <!-- was read -->
+		<input type="submit" value="Aggregate" />
+	</form>
+	
+	<h2>Simple Query</h2>
+	<form action="<c:url value='/DatabaseServletSimple'/>" method="post">
+		<input type="submit" value="Aggregate" />
+	</form>
+	
 	</c:when>
 	</c:choose>
 	

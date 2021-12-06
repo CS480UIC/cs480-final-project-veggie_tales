@@ -54,6 +54,8 @@ public class DatabaseServletCreate extends HttpServlet {
 			e1.printStackTrace();
 		} catch (IllegalAccessException e1) {
 			e1.printStackTrace();
+		} catch (RuntimeException e1) {
+			e1.printStackTrace();
 		}
 		request.setAttribute("msg", "Database Created");
 		request.getRequestDispatcher("/jsps/database/database_read_output.jsp").forward(request, response);

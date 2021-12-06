@@ -91,9 +91,6 @@ public class DatabaseDao {
 
 			String sql = "UPDATE database SET name = ?, vore_type = ? where database = ?;";
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
-//			preparestatement.setString(1, form.getName());
-//			preparestatement.setString(2, form.getVoreType());
-//			preparestatement.setString(3, form.getDatabase());
 			System.out.println(preparestatement);
 			preparestatement.executeUpdate();
 			connect.close();
@@ -116,7 +113,55 @@ public class DatabaseDao {
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
 
-			String sql = "alter table plant drop column dummy;";
+//			String sql = "alter table plant drop column dummy;";
+			Query query = new Query();
+			PreparedStatement preparestatement = connect.prepareStatement(query.dropTables());
+			System.out.println(preparestatement);
+			preparestatement.executeUpdate();
+			connect.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	/**
+		What are aggregate queries in SQL?
+		SQL Aggregate Functions
+		COUNT counts how many rows are in a particular column.
+		SUM adds together all the values in a particular column.
+		MIN and MAX return the lowest and highest values in a particular column, respectively.
+		AVG calculates the average of a group of selected values.
+	 */
+	public void aggregate() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+//		return;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
+					MySQL_password);
+
+			String sql = "alter table plant drop column dummy;";	//	change this to an aggregate function, then run it
+			PreparedStatement preparestatement = connect.prepareStatement(sql);
+			System.out.println(preparestatement);
+			preparestatement.executeUpdate();
+			connect.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	/**
+	 * The simple sql query
+	 * @throws ClassNotFoundException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 */
+	public void simple() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
+					MySQL_password);
+
+			String sql = "alter table plant drop column dummy;";	//	change this to an aggregate function, then run it
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
 //			preparestatement.setString(1, database);
 			System.out.println(preparestatement);
@@ -127,12 +172,25 @@ public class DatabaseDao {
 		}
 	}
 	
-	/*
-		What are aggregate queries in SQL?
-		SQL Aggregate Functions
-		COUNT counts how many rows are in a particular column.
-		SUM adds together all the values in a particular column.
-		MIN and MAX return the lowest and highest values in a particular column, respectively.
-		AVG calculates the average of a group of selected values.
+	/**
+	 * The complex sql query
+	 * @throws ClassNotFoundException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
 	 */
+	public void complex() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
+					MySQL_password);
+
+			String sql = "alter table plant drop column dummy;";	//	change this to an aggregate function, then run it
+			PreparedStatement preparestatement = connect.prepareStatement(sql);
+			System.out.println(preparestatement);
+			preparestatement.executeUpdate();
+			connect.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

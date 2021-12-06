@@ -16,13 +16,13 @@ import database.domain.Database;
  * Servlet implementation class UserServlet
  */
 
-public class DatabaseServletRead extends HttpServlet {
+public class DatabaseServletAggregate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DatabaseServletRead() {
+    public DatabaseServletAggregate() {
         super();
     }
     
@@ -37,28 +37,21 @@ public class DatabaseServletRead extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Database database = null;
 		DatabaseDao databaseDao = new DatabaseDao();
 		
 		try {
-			database = databaseDao.findByDatabase(request.getParameter("database"));
+			databaseDao.aggregate();
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		} catch (InstantiationException e1) {
 			e1.printStackTrace();
 		} catch (IllegalAccessException e1) {
 			e1.printStackTrace();
+		} catch (RuntimeException e1) {
+			e1.printStackTrace();
 		}
-		
-		if(database.getDatabase()!=null){
-					System.out.println(database);
-					request.setAttribute("database", database);
-					request.getRequestDispatcher("/jsps/database/database_read_output.jsp").forward(request, response);
-			}
-			else{
-			request.setAttribute("msg", "Database not found");
-			request.getRequestDispatcher("/jsps/database/database_read_output.jsp").forward(request, response);
-		}
+		request.setAttribute("msg", "Aggregate Query Performed");
+		request.getRequestDispatcher("/jsps/database/database_read_output.jsp").forward(request, response);
 	}
 }
 
