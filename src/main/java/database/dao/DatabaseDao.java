@@ -72,39 +72,18 @@ public class DatabaseDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
 					MySQL_password);
-
-			String sql = "alter table plant add dummy int";
-			PreparedStatement preparestatement = connect.prepareStatement(sql);
+			
+			Query query = new Query();
+			PreparedStatement preparestatement;
+			preparestatement = connect.prepareStatement(query.createTables());
 			System.out.println(preparestatement);
-			preparestatement.executeUpdate();
+			preparestatement.execute();
 			connect.close();
+			init();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-	}
-
-	/**
-	 * @param form
-	 * @throws ClassNotFoundException
-	 * @throws InstantiationException
-	 * @throws IllegalAccessException
-	 * Let this be the command that handles the simple query
-	 */
-	public void update(Database form) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
-					MySQL_password);
-
-			String sql = "UPDATE database SET name = ?, vore_type = ? where database = ?;";
-			PreparedStatement preparestatement = connect.prepareStatement(sql);
-			System.out.println(preparestatement);
-			preparestatement.executeUpdate();
-			connect.close();
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
+	}	
 
 	/**
 	 * @param crop
@@ -253,6 +232,8 @@ public class DatabaseDao {
 	public void simple() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 		findallPhotos();
 		findallPredators();
+		findallEdibles();
+		findallSeasons();
 	}
 	
 	/**
@@ -271,6 +252,34 @@ public class DatabaseDao {
 			PreparedStatement preparestatement = connect.prepareStatement(sql);
 			System.out.println(preparestatement);
 			preparestatement.executeUpdate();
+			connect.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	/**
+	 * The initilize db
+	 * @throws ClassNotFoundException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 */
+	public void init() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
+					MySQL_password);
+
+			PreparedStatement preparestatement  = connect.prepareStatement("SET FOREIGN_KEY_CHECKS = 0;");
+			System.out.println(preparestatement);
+			preparestatement.execute();
+			Query qr = new Query(); 
+			ArrayList<String> arrlist = qr.initializeDatabase();
+			for (int i = 0; i < arrlist.size(); i++) { 		      
+				preparestatement = connect.prepareStatement(arrlist.get(i));
+				System.out.println(preparestatement);
+				preparestatement.executeUpdate();		
+		    }  
 			connect.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
