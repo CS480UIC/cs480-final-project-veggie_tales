@@ -1,7 +1,7 @@
 package database.web.servlet;
 
 import java.io.IOException;
-
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import database.dao.DatabaseDao;
 import database.domain.Database;
+import database.service.DatabaseService;
 
 
 /**
@@ -36,22 +37,85 @@ public class DatabaseServletSimple extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DatabaseDao databaseDao = new DatabaseDao();
+		DatabaseService databaseService = new DatabaseService();
 		
+		// Get a list of photos and list them
 		try {
-			databaseDao.simple();
-		} catch (ClassNotFoundException e1) {
-			e1.printStackTrace();
-		} catch (InstantiationException e1) {
-			e1.printStackTrace();
-		} catch (IllegalAccessException e1) {
-			e1.printStackTrace();
-		} catch (RuntimeException e1) {
-			e1.printStackTrace();
+			request.setAttribute("PhotoList", databaseService.findallPhotos());
+		} catch (InstantiationException | IllegalAccessException
+				| ClassNotFoundException e) {
+			e.printStackTrace();
 		}
-		request.setAttribute("msg", "Simple Query Performed");
-		request.getRequestDispatcher("/jsps/database/database_read_output.jsp").forward(request, response);
+		try {
+			List<Object> li = databaseService.findallPhotos();
+			for(int i = 0; i < li.size();i++){
+				System.out.println(li.get(i).toString());
+			}
+			
+		} catch (InstantiationException | IllegalAccessException
+				| ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		// Get a list of predators and list them
+		try {
+			request.setAttribute("PredatorList", databaseService.findallPredators());
+		} catch (InstantiationException | IllegalAccessException
+				| ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		try {
+			List<Object> li = databaseService.findallPredators();
+			for(int i = 0; i < li.size();i++){
+				System.out.println(li.get(i).toString());
+			}
+			
+		} catch (InstantiationException | IllegalAccessException
+				| ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		// Get a list of edibles and list them
+		try {
+			request.setAttribute("EdibleList", databaseService.findallEdibles());
+		} catch (InstantiationException | IllegalAccessException
+				| ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		try {
+			List<Object> li = databaseService.findallEdibles();
+			for(int i = 0; i < li.size();i++){
+				System.out.println(li.get(i).toString());
+			}
+			
+		} catch (InstantiationException | IllegalAccessException
+				| ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		// Get a list of seasons and list them
+		try {
+			request.setAttribute("SeasonList", databaseService.findallSeasons());
+		} catch (InstantiationException | IllegalAccessException
+				| ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		try {
+			List<Object> li = databaseService.findallSeasons();
+			for(int i = 0; i < li.size();i++){
+				System.out.println(li.get(i).toString());
+			}
+			
+		} catch (InstantiationException | IllegalAccessException
+				| ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		
+		//Finish the command
+		request.getRequestDispatcher("/jsps/database/q1_list.jsp").forward(request, response);
 	}
 }
 

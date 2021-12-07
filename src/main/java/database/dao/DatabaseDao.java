@@ -5,11 +5,18 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 //import java.util.ArrayList;
 //import java.util.List;
 
 import database.domain.Database;
+import edible.domain.Edible;
+import photo.domain.Photo;
+import predator.domain.Predator;
+import season.domain.Season;
+import user.domain.User;
 
 /**
  * DDL functions performed in database
@@ -149,6 +156,94 @@ public class DatabaseDao {
 		}
 	}
 	
+	public List<Object> findallPhotos() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		List<Object> list = new ArrayList<>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user, MySQL_password);
+			String sql = "call select_all_photos()";
+			PreparedStatement preparestatement = connect.prepareStatement(sql); 
+			ResultSet resultSet = preparestatement.executeQuery();			
+			while(resultSet.next()){
+				Photo user = new Photo();
+				user.setPhotoId(resultSet.getString("photo_id"));
+	    		user.setDateTaken(resultSet.getString("date_taken"));
+	    		user.setPhotoDir(resultSet.getString("photo_url"));
+	    		list.add(user);
+			 }
+			connect.close();
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return list;
+		
+	}
+	
+	public List<Object> findallPredators() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		List<Object> list = new ArrayList<>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user, MySQL_password);
+			String sql = "call select_all_predators()";
+			PreparedStatement preparestatement = connect.prepareStatement(sql); 
+			ResultSet resultSet = preparestatement.executeQuery();			
+			while(resultSet.next()){
+				Predator user = new Predator();
+				user.setSpecies(resultSet.getString("species"));
+	    		user.setName(resultSet.getString("name"));
+	    		user.setVoreType(resultSet.getString("vore_type"));
+	    		list.add(user);
+			 }
+			connect.close();
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return list;
+	}
+	
+	public List<Object> findallEdibles() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		List<Object> list = new ArrayList<>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user, MySQL_password);
+			String sql = "call select_all_edibles()";
+			PreparedStatement preparestatement = connect.prepareStatement(sql); 
+			ResultSet resultSet = preparestatement.executeQuery();			
+			while(resultSet.next()){
+				Edible user = new Edible();
+				user.setCrop(resultSet.getString("crop"));
+	    		user.setDishes(resultSet.getString("dishes"));
+	    		user.setAllergen(resultSet.getString("allergen"));
+	    		list.add(user);
+			 }
+			connect.close();
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return list;
+	}
+	
+	public List<Object> findallSeasons() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		List<Object> list = new ArrayList<>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user, MySQL_password);
+			String sql = "call select_all_seasons()";
+			PreparedStatement preparestatement = connect.prepareStatement(sql); 
+			ResultSet resultSet = preparestatement.executeQuery();			
+			while(resultSet.next()){
+				Season user = new Season();
+				user.setSeason(resultSet.getString("season"));
+	    		user.setTemperature(resultSet.getString("temperature"));
+	    		user.setDuration(resultSet.getString("duration"));
+	    		list.add(user);
+			 }
+			connect.close();
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return list;
+	}
 	/**
 	 * The simple sql query
 	 * @throws ClassNotFoundException
@@ -156,20 +251,8 @@ public class DatabaseDao {
 	 * @throws IllegalAccessException
 	 */
 	public void simple() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
-					MySQL_password);
-
-			String sql = "alter table plant drop column dummy;";	//	change this to an aggregate function, then run it
-			PreparedStatement preparestatement = connect.prepareStatement(sql);
-//			preparestatement.setString(1, database);
-			System.out.println(preparestatement);
-			preparestatement.executeUpdate();
-			connect.close();
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
+		findallPhotos();
+		findallPredators();
 	}
 	
 	/**

@@ -1,5 +1,7 @@
 package database.service;
 
+import java.util.List;
+
 import database.dao.DatabaseDao;
 import database.domain.Database;
 
@@ -41,5 +43,21 @@ public class DatabaseService {
 		if (db.getDatabase() == null)
 			throw new DatabaseException("The Database is not in the database...LOL!");
 
+	}
+	
+	public List<Object> findallPhotos() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		return databaseDao.findallPhotos();
+	}
+	
+	public List<Object> findallEdibles() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		return databaseDao.findallEdibles();
+	}
+	
+	public List<Object> findallSeasons() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		return databaseDao.findallSeasons();
+	}
+	
+	public List<Object> findallPredators() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		return databaseDao.findallPredators();
 	}
 }
