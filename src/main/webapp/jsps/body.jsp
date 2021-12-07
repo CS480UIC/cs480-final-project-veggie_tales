@@ -23,8 +23,8 @@
   
   <body>
     <h1>Welcome to our Veggie Tales Project!!!</h1>
-    <c:choose>
-    <c:when test="${!empty sessionScope.session_user }">
+
+
     
 	<h2>Initialize Database</h2>
 	<form action="<c:url value='/DatabaseServletCreate'/>" method="post">
@@ -36,6 +36,10 @@
 		<input type="submit" value="Delete" />
 	</form>
 	
+
+    <c:choose>
+    <c:when test="${!empty sessionScope.session_user }">
+
 	<h2>Complex Query</h2>
 	<form action="<c:url value='/DatabaseServletComplex'/>" method="post"> <!-- was update -->
 		<input type="submit" value="Complex" />
@@ -50,10 +54,10 @@
 	<form action="<c:url value='/DatabaseServletSimple'/>" method="post">
 		<input type="submit" value="Aggregate" />
 	</form>
-	
+
 	</c:when>
 	</c:choose>
-	
+
 		
     
   </body>
