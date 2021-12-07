@@ -2,7 +2,8 @@
  * 
  */
 package database.dao;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 /**
  * @author benit
  *
@@ -13,116 +14,7 @@ public class Query {
 	 * String to Initialize DB
 	 */
 	public String createTables() {
-		String query = "\r\n"
-				+ "CREATE TABLE edible (\r\n"
-				+ "    crop VARCHAR(30) NOT NULL,\r\n"
-				+ "    dishes VARCHAR(40),\r\n"
-				+ "    allergen TINYINT UNSIGNED,\r\n"
-				+ "\r\n"
-				+ "    PRIMARY KEY (crop)\r\n"
-				+ ");\r\n"
-				+ "\r\n"
-				+ "CREATE TABLE predator (\r\n"
-				+ "    species VARCHAR(50) UNIQUE NOT NULL,\r\n"
-				+ "    name VARCHAR(40),\r\n"
-				+ "    vore_type VARCHAR(10),\r\n"
-				+ "\r\n"
-				+ "    PRIMARY KEY (species)\r\n"
-				+ ");\r\n"
-				+ "\r\n"
-				+ "CREATE TABLE climate (\r\n"
-				+ "    climate VARCHAR(30) NOT NULL,\r\n"
-				+ "    rainfall TINYINT NOT NULL,\r\n"
-				+ "    humidity TINYINT NOT NULL,\r\n"
-				+ "\r\n"
-				+ "    PRIMARY KEY (climate)\r\n"
-				+ ");\r\n"
-				+ "\r\n"
-				+ "CREATE TABLE terrain (\r\n"
-				+ "    terrain_type VARCHAR(30) NOT NULL,\r\n"
-				+ "    minerals VARCHAR(20),\r\n"
-				+ "    soil VARCHAR(20),\r\n"
-				+ "    fertilizer VARCHAR(30),\r\n"
-				+ "\r\n"
-				+ "    PRIMARY KEY(terrain_type)\r\n"
-				+ ");\r\n"
-				+ "\r\n"
-				+ "\r\n"
-				+ "CREATE TABLE discoverer (\r\n"
-				+ "    discoverer_name VARCHAR(40) NOT NULL,\r\n"
-				+ "    date DATE,\r\n"
-				+ "    discovered_location VARCHAR(40),\r\n"
-				+ "\r\n"
-				+ "    PRIMARY KEY(discoverer_name)\r\n"
-				+ ");\r\n"
-				+ "\r\n"
-				+ "CREATE TABLE photo (\r\n"
-				+ "    photo_id MEDIUMINT NOT NULL,\r\n"
-				+ "    date_taken DATE,\r\n"
-				+ "    photo_url VARCHAR(300) NOT NULL,\r\n"
-				+ "\r\n"
-				+ "    PRIMARY KEY(photo_id)\r\n"
-				+ ");\r\n"
-				+ "\r\n"
-				+ "\r\n"
-				+ "CREATE TABLE season (\r\n"
-				+ "    season VARCHAR(10) NOT NULL,\r\n"
-				+ "    temperature TINYINT NOT NULL,\r\n"
-				+ "    duration TINYINT NOT NULL,\r\n"
-				+ "\r\n"
-				+ "    PRIMARY KEY(season)\r\n"
-				+ ");\r\n"
-				+ "\r\n"
-				+ "CREATE TABLE visitor_location (\r\n"
-				+ "    zip_code VARCHAR(10) UNIQUE NOT NULL,\r\n"
-				+ "    continent VARCHAR(15),\r\n"
-				+ "    country VARCHAR(60),\r\n"
-				+ "    city VARCHAR(80),\r\n"
-				+ "    climate VARCHAR(30) NOT NULL,\r\n"
-				+ "    terrain VARCHAR(30) NOT NULL,\r\n"
-				+ "\r\n"
-				+ "    PRIMARY KEY(zip_code),\r\n"
-				+ "    FOREIGN KEY (climate) REFERENCES climate(climate),\r\n"
-				+ "    FOREIGN KEY (terrain) REFERENCES terrain(terrain_type)\r\n"
-				+ "		ON DELETE CASCADE\r\n"
-				+ "        ON UPDATE CASCADE\r\n"
-				+ ");\r\n"
-				+ "\r\n"
-				+ "CREATE TABLE plant (\r\n"
-				+ "    plant_name VARCHAR(50) NOT NULL,\r\n"
-				+ "    measurement TINYINT NOT NULL,\r\n"
-				+ "    classification VARCHAR(30) NOT NULL,\r\n"
-				+ "    growth_season VARCHAR(10),\r\n"
-				+ "    plant_discoverer VARCHAR(40),\r\n"
-				+ "    photo_id MEDIUMINT NOT NULL,\r\n"
-				+ "    plant_predator VARCHAR(50),\r\n"
-				+ "  \r\n"
-				+ "    PRIMARY KEY(plant_name),\r\n"
-				+ "    FOREIGN KEY (plant_name) REFERENCES edible(crop),\r\n"
-				+ "    FOREIGN KEY (growth_season) REFERENCES season(season),\r\n"
-				+ "    FOREIGN KEY (plant_discoverer) REFERENCES discoverer(discoverer_name),\r\n"
-				+ "    FOREIGN KEY (photo_id) REFERENCES photo(photo_id),\r\n"
-				+ "    FOREIGN KEY (plant_predator) REFERENCES predator(species)\r\n"
-				+ "		ON DELETE CASCADE\r\n"
-				+ "        ON UPDATE CASCADE\r\n"
-				+ ");\r\n"
-				+ "\r\n"
-				+ "CREATE TABLE user\r\n"
-				+ "(\r\n"
-				+ "  \r\n"
-				+ "  username VARCHAR(50) primary key,\r\n"
-				+ "  `password` VARCHAR(50) NOT NULL,\r\n"
-				+ "  email VARCHAR(50) NOT NULL\r\n"
-				+ ");\r\n"
-				+ "\r\n"
-				+ "\r\n"
-				+ "CREATE TABLE entity1 \r\n"
-				+ "(\r\n"
-				+ "  \r\n"
-				+ "  username VARCHAR(50) primary key,\r\n"
-				+ "  `password` VARCHAR(50) NOT NULL,\r\n"
-				+ "  email VARCHAR(50) NOT NULL\r\n"
-				+ ");";
+		String query = "call veggietales_db.create_tables()";
 		
 		return query;
 	}
@@ -131,73 +23,78 @@ public class Query {
 	 * String to add values to the database
 	 * @return
 	 */
-	public String initializeDatabase() {
-		String query = "SET FOREIGN_KEY_CHECKS = 0;\r\n"
-				+ "LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-edible.csv' \r\n"
-				+ "INTO TABLE edible \r\n"
-				+ "FIELDS TERMINATED BY ',' \r\n"
-				+ "ENCLOSED BY '\"'\r\n"
-				+ "LINES TERMINATED BY '\\n'\r\n"
-				+ "IGNORE 1 ROWS;\r\n"
-				+ "\r\n"
-				+ "LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-climate.csv'\r\n"
-				+ "INTO TABLE climate \r\n"
-				+ "FIELDS TERMINATED BY ',' \r\n"
-				+ "ENCLOSED BY '\"'\r\n"
-				+ "LINES TERMINATED BY '\\n'\r\n"
-				+ "IGNORE 1 ROWS;\r\n"
-				+ "\r\n"
-				+ "LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-discoverer.csv'\r\n"
-				+ "INTO TABLE discoverer\r\n"
-				+ "FIELDS TERMINATED BY ',' \r\n"
-				+ "ENCLOSED BY '\"'\r\n"
-				+ "LINES TERMINATED BY '\\n'\r\n"
-				+ "IGNORE 1 ROWS;\r\n"
-				+ "\r\n"
-				+ "LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-photo.csv'\r\n"
-				+ "INTO TABLE photo\r\n"
-				+ "FIELDS TERMINATED BY ',' \r\n"
-				+ "ENCLOSED BY '\"'\r\n"
-				+ "LINES TERMINATED BY '\\n'\r\n"
-				+ "IGNORE 1 ROWS;\r\n"
-				+ "\r\n"
-				+ "LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-predator.csv'\r\n"
-				+ "INTO TABLE predator\r\n"
-				+ "FIELDS TERMINATED BY ',' \r\n"
-				+ "ENCLOSED BY '\"'\r\n"
-				+ "LINES TERMINATED BY '\\n'\r\n"
-				+ "IGNORE 1 ROWS;\r\n"
-				+ "\r\n"
-				+ "LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-terrain.csv'\r\n"
-				+ "INTO TABLE terrain\r\n"
-				+ "FIELDS TERMINATED BY ',' \r\n"
-				+ "ENCLOSED BY '\"'\r\n"
-				+ "LINES TERMINATED BY '\\n'\r\n"
-				+ "IGNORE 1 ROWS;\r\n"
-				+ "\r\n"
-				+ "LOAD DATA INFILE  'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-visitor_location.csv'\r\n"
-				+ "INTO TABLE visitor_location\r\n"
-				+ "FIELDS TERMINATED BY ',' \r\n"
-				+ "ENCLOSED BY '\"'\r\n"
-				+ "LINES TERMINATED BY '\\r\\n'\r\n"
-				+ "IGNORE 1 ROWS;\r\n"
-				+ "\r\n"
-				+ "LOAD DATA INFILE  'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-season.csv'\r\n"
-				+ "INTO TABLE season\r\n"
-				+ "FIELDS TERMINATED BY ',' \r\n"
-				+ "ENCLOSED BY '\"'\r\n"
-				+ "LINES TERMINATED BY '\\n'\r\n"
-				+ "IGNORE 1 ROWS;\r\n"
-				+ "\r\n"
-				+ "LOAD DATA INFILE  'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-plants.csv'\r\n"
-				+ "INTO TABLE plant\r\n"
-				+ "FIELDS TERMINATED BY ',' \r\n"
-				+ "ENCLOSED BY '\"'\r\n"
-				+ "LINES TERMINATED BY '\\n'\r\n"
-				+ "IGNORE 1 ROWS;\r\n"
-				+ "SET FOREIGN_KEY_CHECKS = 1;";
+	public ArrayList<String> initializeDatabase() {
+//		String query = "LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-climate.csv'" 
+//				+ "INTO TABLE climate " + "FIELDS TERMINATED BY ',' " +  "ENCLOSED BY '\"' " + 
+//				"LINES TERMINATED BY '\\n'" + "IGNORE 1 ROWS;";
 		
-		return query;
+		String edible_csv = "LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-edible.csv' "
+				+ "INTO TABLE edible "
+				+ "FIELDS TERMINATED BY ',' "
+				+ "ENCLOSED BY '\"' "
+				+ "LINES TERMINATED BY '\\n' "
+				+ "IGNORE 1 ROWS; ";
+		
+		String climate_csv = "LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-climate.csv' "
+				+ "INTO TABLE climate "
+				+ "FIELDS TERMINATED BY ',' "
+				+ "ENCLOSED BY '\"' "
+				+ "LINES TERMINATED BY '\\n' "
+				+ "IGNORE 1 ROWS; ";
+		
+		String discoverer_csv = "LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-discoverer.csv' "
+				+ "INTO TABLE discoverer "
+				+ "FIELDS TERMINATED BY ',' "
+				+ "ENCLOSED BY '\"' "
+				+ "LINES TERMINATED BY '\\n' "
+				+ "IGNORE 1 ROWS; ";
+		
+		String photo_csv = "LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-photo.csv' "
+				+ "INTO TABLE photo "
+				+ "FIELDS TERMINATED BY ',' "
+				+ "ENCLOSED BY '\"' "
+				+ "LINES TERMINATED BY '\\n' "
+				+ "IGNORE 1 ROWS; ";
+		
+		String predator_csv = "LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-predator.csv' "
+				+ "INTO TABLE predator "
+				+ "FIELDS TERMINATED BY ',' "
+				+ "ENCLOSED BY '\"' "
+				+ "LINES TERMINATED BY '\\n' "
+				+ "IGNORE 1 ROWS; ";
+		
+		String terrain_csv = "LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-terrain.csv' "
+				+ "INTO TABLE terrain "
+				+ "FIELDS TERMINATED BY ',' "
+				+ "ENCLOSED BY '\"' "
+				+ "LINES TERMINATED BY '\\n' "
+				+ "IGNORE 1 ROWS; ";
+		
+		String visitor_location_csv = "LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-visitor_location.csv' "
+				+ "INTO TABLE visitor_location "
+				+ "FIELDS TERMINATED BY ',' "
+				+ "ENCLOSED BY '\"' "
+				+ "LINES TERMINATED BY '\\n' "
+				+ "IGNORE 1 ROWS; ";
+		
+		String season_csv = "LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-season.csv' "
+				+ "INTO TABLE season "
+				+ "FIELDS TERMINATED BY ',' "
+				+ "ENCLOSED BY '\"' "
+				+ "LINES TERMINATED BY '\\n' "
+				+ "IGNORE 1 ROWS; ";
+		
+		String plants_csv = "LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/veggie_tales-plants.csv' "
+				+ "INTO TABLE plant "
+				+ "FIELDS TERMINATED BY ',' "
+				+ "ENCLOSED BY '\"' "
+				+ "LINES TERMINATED BY '\\n' "
+				+ "IGNORE 1 ROWS; ";
+		
+		
+		
+		ArrayList<String> csv_files = new ArrayList<>(Arrays.asList(edible_csv, climate_csv,discoverer_csv,photo_csv,predator_csv,terrain_csv,visitor_location_csv,season_csv,plants_csv));
+		return csv_files;
 	}
 	
 	
@@ -206,17 +103,7 @@ public class Query {
 	 */
 	public String dropTables() {
 		
-		String query = "DROP TABLE edible;\r\n"
-				+ "DROP TABLE plant;\r\n"
-				+ "DROP TABLE discoverer;\r\n"
-				+ "DROP TABLE photo;\r\n"
-				+ "DROP TABLE predator;\r\n"
-				+ "DROP TABLE season;\r\n"
-				+ "DROP TABLE user;\r\n"
-				+ "DROP TABLE entity1;\r\n"
-				+ "DROP TABLE visitor_location;\r\n"
-				+ "DROP TABLE terrain;\r\n"
-				+ "DROP TABLE climate;";
+		String query = "call veggietales_db.drop_tables()";
 		return query;
 	}
 
