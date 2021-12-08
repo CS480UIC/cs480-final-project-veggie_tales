@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Hashtable;
 
 //import java.util.ArrayList;
 //import java.util.List;
@@ -243,20 +244,99 @@ public class DatabaseDao {
 	 * @throws IllegalAccessException
 	 */
 	public void complex() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+			 findCityHumidity();
+			 findPlantSeasonGrowth();
+//			 findPlantTemperature();
+//			 findPlantClassificationLocation();
+	}
+	
+	public List<Object> findCityHumidity() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		List<Object> list = new ArrayList<>();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user,
-					MySQL_password);
-
-			String sql = "alter table plant drop column dummy;";	//	change this to an aggregate function, then run it
-			PreparedStatement preparestatement = connect.prepareStatement(sql);
-			System.out.println(preparestatement);
-			preparestatement.executeUpdate();
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user, MySQL_password);
+			String sql = "call veggietales_db.CityHumidity();";
+			PreparedStatement preparestatement = connect.prepareStatement(sql); 
+			ResultSet resultSet = preparestatement.executeQuery();		
+			while(resultSet.next()){
+				Hashtable<String, String> my_dict = new Hashtable<String, String>();
+				my_dict.put("rainfall", resultSet.getString("rainfall"));
+				my_dict.put("city", resultSet.getString("city"));
+				my_dict.put("humidity", resultSet.getString("humidity"));
+	    		list.add(my_dict);
+			 }
 			connect.close();
-		} catch (SQLException e) {
+		} catch(SQLException e) {
 			throw new RuntimeException(e);
 		}
+		return list;
 	}
+	
+	public List<Object> findPlantSeasonGrowth() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		List<Object> list = new ArrayList<>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user, MySQL_password);
+			String sql = "call veggietales_db.PlantSeasonGrowth();";
+			PreparedStatement preparestatement = connect.prepareStatement(sql); 
+			ResultSet resultSet = preparestatement.executeQuery();			
+			while(resultSet.next()){
+				Hashtable<String, String> my_dict = new Hashtable<String, String>();
+				my_dict.put("dishes", resultSet.getString("dishes"));
+				my_dict.put("growth_season", resultSet.getString("growth_season"));
+				my_dict.put("measurement", resultSet.getString("measurement"));
+	    		list.add(my_dict);
+			 }
+			connect.close();
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return list;
+	}
+	
+	public List<Object> findPlantTemperature() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		List<Object> list = new ArrayList<>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user, MySQL_password);
+			String sql = "call veggietales_db.PlantTemperature();";
+			PreparedStatement preparestatement = connect.prepareStatement(sql); 
+			ResultSet resultSet = preparestatement.executeQuery();			
+			while(resultSet.next()){
+				Hashtable<String, String> my_dict = new Hashtable<String, String>();
+				my_dict.put("season", resultSet.getString("season"));
+				my_dict.put("temperature", resultSet.getString("temperature"));
+				my_dict.put("plant_name", resultSet.getString("plant_name"));
+	    		list.add(my_dict);
+			 }
+			connect.close();
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return list;
+	}
+	
+	public List<Object> findPlantClassificationLocation() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		List<Object> list = new ArrayList<>();
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/veggietales_db", MySQL_user, MySQL_password);
+			String sql = "call veggietales_db.PlantClassificationLocation();";
+			PreparedStatement preparestatement = connect.prepareStatement(sql); 
+			ResultSet resultSet = preparestatement.executeQuery();			
+			while(resultSet.next()){
+				Hashtable<String, String> my_dict = new Hashtable<String, String>();
+				my_dict.put("classification", resultSet.getString("classification"));
+				my_dict.put("discovered_location", resultSet.getString("discovered_location"));
+	    		list.add(my_dict);
+			 }
+			connect.close();
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+		return list;
+	}
+	
 	
 	/**
 	 * The initilize db
@@ -277,7 +357,6 @@ public class DatabaseDao {
 			ArrayList<String> arrlist = qr.initializeDatabase();
 			for (int i = 0; i < arrlist.size(); i++) { 		      
 				preparestatement = connect.prepareStatement(arrlist.get(i));
-				System.out.println(preparestatement);
 				preparestatement.executeUpdate();		
 		    }  
 			connect.close();

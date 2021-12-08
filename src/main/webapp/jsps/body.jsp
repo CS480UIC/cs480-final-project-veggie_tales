@@ -52,7 +52,7 @@
 	
 	<h2>Simple Query</h2>
 	<form action="<c:url value='/DatabaseServletSimple'/>" method="post">
-		<input type="submit" value="Aggregate" />
+		<input type="submit" value="Simple" />
 	</form>
 
 	</c:when>
